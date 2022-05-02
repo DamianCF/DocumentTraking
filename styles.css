@@ -5,8 +5,9 @@ background-color: aquamarine;
 }
 
 #tit{
-
-    align-content:flex-end;
+    text-align: center;
+    align-content:center;
     background-color: beige;
+    color: lightseagreen;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
