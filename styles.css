@@ -4,9 +4,9 @@ background-color: aquamarine;
 
 }
 
-.tit{
+#tit{
 
-    position: relative;
-    background-color: blueviolet;
-
+    align-content:flex-end;
+    background-color: beige;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
