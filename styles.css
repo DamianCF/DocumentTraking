@@ -1,6 +1,6 @@
 body{
 
-    background-color: aquamarine;
+    background-image: url("img/wallaper.jpg");
     
     }
     
@@ -10,4 +10,8 @@ body{
         background-color: beige;
         color: lightseagreen;
         font-family: Georgia, 'Times New Roman', Times, serif;
+        border-radius:28px;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding:25px;
     }
