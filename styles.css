@@ -2,12 +2,16 @@ body{
 
 background-color: aquamarine;
 
-}
+    }
 
 #tit{
-    text-align: center;
-    align-content:center;
-    background-color: beige;
-    color: lightseagreen;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
+        text-align: center;
+        align-content:center;
+        background-color: beige;
+        color: lightseagreen;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        border-radius:28px;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding:25px;
+    }
