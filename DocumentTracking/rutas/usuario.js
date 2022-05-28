@@ -6,10 +6,9 @@ const { model } = require('../conexion')
 const eschema  = mongoose.Schema
 
 const eschemausuario = new eschema({
-    nombre: String,
-    email: String,
-    telefono: String, 
-    idUsuario: String
+    idEmpleado: String,
+    clave: String,
+    estado: String
 })
 
 const ModeloUsuario = mongoose.model('usuarios', eschemausuario)
@@ -28,10 +27,9 @@ router.get('/ejemplo', (req,res)=>{
 router.post('/agregarusuario', (req, res) => {
 
     const nuevousuario = new ModeloUsuario({
-        nombre: req.body.nombre,
-        email: req.body.email,
-        telefono: req.body.telefono,
-        idUsuario: req.body.idUsuario
+        idEmpleado: req.body.idEmpleado,
+        clave: req.body.clave,
+        estado: req.body.estado
     })
 
     nuevousuario.save(function(err){
