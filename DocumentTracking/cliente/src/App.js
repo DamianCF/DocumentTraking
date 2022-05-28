@@ -4,6 +4,7 @@ import ListaUsuarios from './ListaUsuarios';
 import AgregarUsuario from './AgregarUsuario';
 import EditarUsuario from './EditarUsuario';
 import {BrowserRouter,Routes, Route} from 'react-router-dom'
+import AgregarDepartamento from './AgregarDepartamento';
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
                 <li className="nav-item">
                   <a className="nav-link" href="agregarusuario">Agregar Usuario</a>
                 </li>
+                
+                <li className="nav-item">
+                  <a className="nav-link" href="agregardepartamento">Agregar Departamento</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -32,6 +37,7 @@ function App() {
           <Route path= '/' element = {<ListaUsuarios/>} exact ></Route>
           <Route path= '/agregarusuario' element = {<AgregarUsuario/>} exact></Route>
           <Route path= '/editarusuario/:idusuario' element = {<EditarUsuario/>} exact></Route>
+          <Route path= '/agregardepartamento' element = {<AgregarDepartamento/>} exact></Route>
       </Routes>
 
     </BrowserRouter>
