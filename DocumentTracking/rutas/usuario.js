@@ -6,22 +6,13 @@ const { model } = require('../conexion')
 const eschema  = mongoose.Schema
 
 const eschemausuario = new eschema({
-    idEmpleado: String,
-    clave: String,
-    estado: String
+    idEmpleado: {type: String ,required: true},
+    clave: {type: String ,required: true},
+    estado: {type: String , enum: ['A', 'I'] , default : 'A' ,required: true}
 })
 
 const ModeloUsuario = mongoose.model('usuarios', eschemausuario)
 module.exports = router
-
-
-
-/* Ruta de prueba
-router.get('/ejemplo', (req,res)=>{
-    res.end('Saludo carga desde ruta ejemplo')
-}) */
-
-
 
 //Agregar Usuario
 router.post('/agregarusuario', (req, res) => {
@@ -32,6 +23,9 @@ router.post('/agregarusuario', (req, res) => {
         estado: req.body.estado
     })
 
+    console.log('Informacion del Body');
+    console.log(req.body)
+
     nuevousuario.save(function(err){
         if(!err){ 
             res.send('Usuario agregado correctamente')
@@ -41,9 +35,7 @@ router.post('/agregarusuario', (req, res) => {
     })
 })
 
-
 // obtener todos los usuarios
-
 router.get('/obtenerusuarios', (req, res) =>{
     ModeloUsuario.find({}, function (docs , err){
         if(!err){
@@ -55,9 +47,8 @@ router.get('/obtenerusuarios', (req, res) =>{
 } )
 
 // obtener data de usuario
-
 router.post('/obtenerdatausuario', (req, res) =>{
-    ModeloUsuario.find({idusuario:req.body.idusuario}, function (docs , err){
+    ModeloUsuario.find({idEmpleado:req.body.idEmpleado}, function (docs , err){
         if(!err){
             res.send(docs)
         }else{
@@ -70,10 +61,10 @@ router.post('/obtenerdatausuario', (req, res) =>{
 //Actualiza Usuario
 router.post('/actualizausuario', (req, res) => {
 
-    ModeloUsuario.findOneAndUpdate({idusuario:req.body.idusuario},{
-        nombre: req.body.nombre,
-        email: req.body.email,
-        telefono: req.body.telefono
+    ModeloUsuario.findOneAndUpdate({idEmpleado:req.body.idEmpleado},{
+        idEmpleado: req.body.idEmpleado,
+        clave: req.body.clave,
+        estado: req.body.estado
 
     }, (err)=>{
             if(!err){
@@ -88,7 +79,7 @@ router.post('/actualizausuario', (req, res) => {
 //Borrar Usuario
 router.post('/borrarusuario', (req, res) => {
 
-    ModeloUsuario.findOneAndDelete({idusuario:req.body.idusuario},(err)=>{
+    ModeloUsuario.findOneAndDelete({idEmpleado:req.body.idEmpleado},(err)=>{
         if(!err){
             res.send('Usuario borrado correctamente')
         }else{
