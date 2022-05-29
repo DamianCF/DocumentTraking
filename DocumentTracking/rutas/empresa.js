@@ -18,19 +18,15 @@ const eschemagerencia = new eschema({
     gerentes: [String]
 })
 
-const eschemacontacto = new eschema({
-    telefono: Number,
-    correo: String
-})
-
 const eschemaempresa = new eschema({
     idEmpresa: {type: String, required: true , unique: true},
     nombre: {type: String, required: true },
     indoleNegocio: {type: String},
     cedulaJuridica:{type: String, required: true , unique: true}, 
-    estado:{type: String, required: true },
+    estado:{type: String, enum: ['A', 'I'] , default : 'A' , required: true },
     gerencia: eschemagerencia,
-    contacto:eschemacontacto,
+    telefono: Number,
+    correo: String,
     sucursales:[eschemasucursal]
 })
 
@@ -45,7 +41,10 @@ router.post('/agregarempresa', (req, res) => {
         nombre: req.body.nombre,
         indoleNegocio: req.body.indoleNegocio,
         cedulaJuridica: req.body.cedulaJuridica,
-        estado: req.body.estado
+        estado: req.body.estado,
+        correo: req.body.correo,
+        telefono : req.body.telefono
+
     })
     nuevaempresa.save(function(err){
         if(!err){ 
@@ -87,7 +86,9 @@ router.post('/actualizarempresa', (req, res) => {
         nombre: req.body.nombre,
         indoleNegocio: req.body.indoleNegocio,
         cedulaJuridica: req.body.cedulaJuridica,
-        estado: req.body.estado
+        estado: req.body.estado,
+        correo: req.body.correo,
+        telefono : req.body.telefono
     }, (err)=>{
             if(!err){
                 res.send('Empresa actualizada correctamente')
