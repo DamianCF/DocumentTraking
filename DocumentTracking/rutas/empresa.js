@@ -6,7 +6,7 @@ const { model } = require('../conexion')
 const eschema  = mongoose.Schema
 
 const eschemasucursal = new eschema({
-    nombre:{type: String, required: true},
+    nomSucursal:{type: String, required: true},
     provincia: String,
     canton: String,
     distrito: String,
@@ -43,8 +43,9 @@ router.post('/agregarempresa', (req, res) => {
         cedulaJuridica: req.body.cedulaJuridica,
         estado: req.body.estado,
         correo: req.body.correo,
-        telefono : req.body.telefono
-
+        telefono : req.body.telefono,
+        gerencia: req.body.gerencia,
+        sucursales : req.body.sucursales
     })
     nuevaempresa.save(function(err){
         if(!err){ 
@@ -54,7 +55,6 @@ router.post('/agregarempresa', (req, res) => {
         }
     })
 })
-
 
 // obtener todas las empresas
 router.get('/obtenerempresas', (req, res) =>{
@@ -78,7 +78,7 @@ router.post('/obtenerdataempresa', (req, res) =>{
     })
 } )
 
-//Actualiza Usuario
+//Actualiza Empresa
 router.post('/actualizarempresa', (req, res) => {
 
     ModeloEmpresa.findOneAndUpdate({idEmpresa:req.body.idEmpresa},{
@@ -88,7 +88,9 @@ router.post('/actualizarempresa', (req, res) => {
         cedulaJuridica: req.body.cedulaJuridica,
         estado: req.body.estado,
         correo: req.body.correo,
-        telefono : req.body.telefono
+        telefono : req.body.telefono,
+        gerencia: req.body.gerencia,
+        sucursales : req.body.sucursales
     }, (err)=>{
             if(!err){
                 res.send('Empresa actualizada correctamente')
@@ -103,7 +105,7 @@ router.post('/borrarempresa', (req, res) => {
 
     ModeloEmpresa.findOneAndDelete({idEmpresa:req.body.idEmpresa},(err)=>{
         if(!err){
-            res.send('Empresa actualizada correctamente')
+            res.send('Empresa Borrada correctamente')
         }else{
             res.send(err)
         }
