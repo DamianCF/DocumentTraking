@@ -33,7 +33,7 @@ app.get('/', (req, res)=>{
     res.end('Bienvenidos al sevidor backend Node.js. Corriendo')
 
 })
-
+//
 // configurar server basico
 app.listen(5000, function(){
     console.log('El servidor  NODE esta corriendo correctamente')
