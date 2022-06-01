@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const { model } = require('../conexion')
 const eschema  = mongoose.Schema
 
-
+//Esquema bitacora
 const eschemaBitacora = new eschema({
     fechaIni: Date,
     fechaFin: Date
