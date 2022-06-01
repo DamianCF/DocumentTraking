@@ -16,14 +16,14 @@ const eschemaCaso = new eschema({
 })
 
 const eschemaBitacora = new eschema({
-    fechaInicio: String,
-    fechaFinal: String
+    fechaInicio: Date,
+    fechaFinal: Date
 })
 
 const eschemaControlFechasDepts = new eschema({
     idDepartamento: {type: String, required: true},
-    fechaInicio: String,
-    fechaFinal: String
+    fechaInicio: Date,
+    fechaFinal: Date
 })
 
 const ModeloCaso = mongoose.model('casos', eschemaCaso)
