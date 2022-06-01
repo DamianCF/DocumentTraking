@@ -19,6 +19,8 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:'true'}))
 
+
+// rutas
 app.use('/api/usuario', rutausuario)
 app.use('/api/usuario', rutaempresa)
 app.use('/api/usuario', rutadepartamento)
