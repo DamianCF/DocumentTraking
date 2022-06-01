@@ -7,8 +7,8 @@ const eschema  = mongoose.Schema
 
 
 const eschemaBitacora = new eschema({
-    fechaInicio: Date,
-    fechaFinal: Date
+    fechaIni: Date,
+    fechaFin: Date
 })
 
 const eschemaControlFechasDepts = new eschema({
@@ -23,7 +23,7 @@ const eschemaCaso = new eschema({
     numCaso: String,
     detalle: String,
     estado:{type: String, enum: ['A', 'F'] , default : 'A' , required: true },
-    bitacora: [eschemaBitacora],
+    bitacora: eschemaBitacora,
     ctrlFechas: [eschemaControlFechasDepts]
 })
 
