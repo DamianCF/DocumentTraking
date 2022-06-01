@@ -5,15 +5,6 @@ const mongoose = require('mongoose')
 const { model } = require('../conexion')
 const eschema  = mongoose.Schema
 
-const eschemaCaso = new eschema({
-    idCaso:{type: String, required: true},
-    idTramite: String,
-    numCaso: String,
-    detalle: String,
-    estado:{type: String, enum: ['A', 'F'] , default : 'A' , required: true },
-    bitacora: [eschemaBitacora],
-    ctrlFechas: [eschemaControlFechasDepts]
-})
 
 const eschemaBitacora = new eschema({
     fechaInicio: Date,
@@ -26,7 +17,21 @@ const eschemaControlFechasDepts = new eschema({
     fechaFinal: Date
 })
 
-const ModeloCaso = mongoose.model('casos', eschemaCaso)
+const eschemaCaso = new eschema({
+    idCaso:{type: String, required: true},
+    idTramite: String,
+    numCaso: String,
+    detalle: String,
+    estado:{type: String, enum: ['A', 'F'] , default : 'A' , required: true },
+    bitacora: [eschemaBitacora],
+    ctrlFechas: [eschemaControlFechasDepts]
+})
+
+
+
+
+
+const ModeloCaso = mongoose.model('caso', eschemaCaso)
 module.exports = router
 
 //Agregar caso
