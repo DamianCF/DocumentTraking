@@ -11,6 +11,7 @@ const rutadepartamento= require ('./rutas/departamento')
 const rutaempleado= require ('./rutas/empleado')
 const rutadocumento= require ('./rutas/documento')
 const rutatramite= require ('./rutas/tramite')
+const rutacaso= require ('./rutas/caso')
 
 
 
@@ -25,6 +26,7 @@ app.use('/api/usuario', rutadepartamento)
 app.use('/api/usuario', rutaempleado)
 app.use('/api/usuario', rutadocumento)
 app.use('/api/usuario', rutatramite)
+app.use('/api/usuario', rutacaso)
 
 
 app.get('/', (req, res)=>{
