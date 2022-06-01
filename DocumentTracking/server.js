@@ -7,7 +7,11 @@ const archivoBD = require('./conexion')
 // importacion de archivos de rutas y modelo de usuario
 const rutausuario= require ('./rutas/usuario')
 const rutaempresa= require ('./rutas/empresa')
-const rutaCasoAbierto= require ('./rutas/casoAbierto')
+const rutadepartamento= require ('./rutas/departamento')
+const rutaempleado= require ('./rutas/empleado')
+const rutadocumento= require ('./rutas/documento')
+const rutatramite= require ('./rutas/tramite')
+
 
 
 //importar body-parser
@@ -17,11 +21,14 @@ app.use(bodyParser.urlencoded({extended:'true'}))
 
 app.use('/api/usuario', rutausuario)
 app.use('/api/usuario', rutaempresa)
-app.use('/api/usuario', rutaCasoAbierto)
+app.use('/api/usuario', rutadepartamento)
+app.use('/api/usuario', rutaempleado)
+app.use('/api/usuario', rutadocumento)
+app.use('/api/usuario', rutatramite)
 
 
 app.get('/', (req, res)=>{
-    res.end('Bienvenodos al sevidor backend Node.js. Corriendo')
+    res.end('Bienvenidos al sevidor backend Node.js. Corriendo')
 
 })
 
