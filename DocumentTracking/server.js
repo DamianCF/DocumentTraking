@@ -34,7 +34,7 @@ app.get('/', (req, res)=>{
 
 })
 
-// configurar server basico
+// configurar server basico..
 app.listen(5000, function(){
     console.log('El servidor  NODE esta corriendo correctamente')
 })
