@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import uniquid from 'uniquid'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import Principal from './Principal'
+import {BrowserRouter,Routes, Route} from 'react-router-dom'
 
 function Login() {
     return (
@@ -27,17 +29,20 @@ function Login() {
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-dark float-end">iniciar</button>
+                                <button type="submit" class="btn btn-dark float-end" href="principal" >iniciar</button>
                             </div>
                         </form>
                         <hr class="mt-4"/>
                             <div class="col-12">
-                                <p class="text-center mb-0">Have not account yet? <a href="#">Registrarse</a></p>
+                                <p class="text-center mb-0">No estas registrado? <a href="#">Registrarse</a></p>
                             </div>
                     </div>
                 </div>
             </div>
+       
+    
         </div>
+
     )
 }
 

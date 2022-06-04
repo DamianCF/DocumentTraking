@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './css/App.css';
 import ListaUsuarios from './components/Login';
+import Principal from './components/Principal';
+
 import {BrowserRouter,Routes, Route} from 'react-router-dom'
+import Login from './components/Login';
 
 function App() {
   return (
@@ -9,7 +12,9 @@ function App() {
 
     <BrowserRouter>
       <Routes>
-          <Route path= '/' element = {<ListaUsuarios/>} exact ></Route>
+          <Route path= '/' element = {<Principal/>} exact ></Route>
+          <Route path= '/principal' element = {<Principal/>} exact ></Route>
+
       </Routes>
     </BrowserRouter>
 
