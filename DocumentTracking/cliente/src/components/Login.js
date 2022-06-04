@@ -1,44 +1,42 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import uniquid from 'uniquid'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-function Login(){
+function Login() {
+    return (
 
-
-    return(
-        <div >
-hjagdsgg
-            {/* <div id="login"/>
-                <h3 classname="text-center text-white pt-5">Login form</h3>
-                <div classname="container"/>
-                    <div id="login-row" classname="row justify-content-center align-items-center">
-                        <div id="login-column" classname="col-md-6">
-                            <div id="login-box" classname="col-md-12">
-                                <form id="login-form" classname="form" action="" method="post"/>
-                                    <h3 classname="text-center text-info">Login</h3>
-                                    <div classname="form-group">
-                                        <label for="username" classname="text-info">Username:</label><br/>
-                                        <input type="text" name="username" id="username" classname="form-control"/>
-                                    </div>
-                                    <div classname="form-group">
-                                        <label for="password" classname="text-info">Password:</label><br/>
-                                        <input type="text" name="password" id="password" classname="form-control"/>
-                                    </div>
-                                    <div classname="form-group">
-                                        <label for="remember-me" classname="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br/>
-                                        <input type="submit" name="submit" classname="btn btn-info btn-md" value="submit"/>
-                                    </div>
-                                    <div id="register-link" classname="text-right">
-                                        <a href="#" classname="text-info">Register here</a>
-                                    </div>
-                                </form>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <div class="login-form bg-light mt-4 p-4">
+                        <form action="" method="" class="row g-3">
+                            <h4>Inicio de sesion</h4>
+                            <div class="col-12">
+                                <label>Usuario</label>
+                                <input type="text" name="username" class="form-control" placeholder="Username"/>
                             </div>
-                        </div>
+                            <div class="col-12">
+                                <label>Clave</label>
+                                <input type="password" name="password" class="form-control" placeholder="Password"/>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe"/>
+                                        <label class="form-check-label" for="rememberMe"> Recordarme</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-dark float-end">iniciar</button>
+                            </div>
+                        </form>
+                        <hr class="mt-4"/>
+                            <div class="col-12">
+                                <p class="text-center mb-0">Have not account yet? <a href="#">Registrarse</a></p>
+                            </div>
                     </div>
                 </div>
             </div>
-       */}
         </div>
     )
 }
