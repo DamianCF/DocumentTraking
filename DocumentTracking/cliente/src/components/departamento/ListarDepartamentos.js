@@ -38,6 +38,8 @@ function Listardepartamentos() {
                 <h1>
                     Departamentos
                 </h1>
+                <a class="nav-link" href="/">Agregar Departamento</a>
+                <hr/>
                 {listadepartamentos}
             </div>
 
