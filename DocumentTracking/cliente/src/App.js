@@ -2,9 +2,9 @@ import './css/App.css';
 import Principal from './components/Principal';
 import {BrowserRouter,Routes, Route} from 'react-router-dom'
 import ListarDepartamentos from './components/departamento/ListarDepartamentos';
-import ListarTramites from './components/ListarTramites';
-import ListarDocumentos from './components/ListarDocumentos';
-import ListarEmpleados from './components/ListarEmpleados';
+import ListarTramites from './components/tramite/ListarTramites';
+import ListarDocumentos from './components/documento/ListarDocumentos';
+import ListarEmpleados from './components/empleado/ListarEmpleados';
 
 function App() {
   return (
