@@ -1,8 +1,34 @@
-import React from 'react'
+
 import NavBar from '../NavBar';
+import React, { useEffect, useState } from 'react'
+import DepartamentoIndividual from './DepartamentoIndividual'
+import axios from 'axios'
 
 
-function ListarDepartamentos() {
+
+function Listardepartamentos() {
+
+
+    const[datadepartamentos,setdatadepartamento] = useState([])
+
+    useEffect( () => {
+            axios.get('api/usuario/obtenerdepartamentos').then(res => {
+                console.log(res.data)
+                setdatadepartamento(res.data)
+            }).catch( err =>{console.log(err)}
+            ) // min 1:39:38
+    },[])
+
+
+    // mapear listadepartamentos en objeto usuario
+    const listadepartamentos = datadepartamentos.map(departamento=>{
+        return(
+            <div>
+                <DepartamentoIndividual departamento={departamento}/>
+            </div>
+        )
+    })
+
     return (
 
         <div>
@@ -12,6 +38,7 @@ function ListarDepartamentos() {
                 <h1>
                     Departamentos
                 </h1>
+                {listadepartamentos}
             </div>
 
             {/* <div class="list-group">
@@ -29,4 +56,4 @@ function ListarDepartamentos() {
 }
 
 
-export default ListarDepartamentos
+export default Listardepartamentos
