@@ -1,12 +1,7 @@
-import logo from './logo.svg';
 import './css/App.css';
-import ListaUsuarios from './components/Login';
 import Principal from './components/Principal';
-
 import {BrowserRouter,Routes, Route} from 'react-router-dom'
-import Login from './components/Login';
-import ListarDepartamentos from './components/ListarDepartamentos';
-import NavBar from './components/NavBar';
+import ListarDepartamentos from './components/departamento/ListarDepartamentos';
 import ListarTramites from './components/ListarTramites';
 import ListarDocumentos from './components/ListarDocumentos';
 import ListarEmpleados from './components/ListarEmpleados';

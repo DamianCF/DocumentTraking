@@ -1,13 +1,5 @@
-import React, { useState } from 'react'
-import uniquid from 'uniquid'
-import axios from 'axios'
-import Swal from 'sweetalert2'
-import AgregarDepartamento from './AgregarDepartamento';
-import AgregarUsuario from './AgregarUsuario';
-import EditarUsuario from './EditarUsuario';
-import ListaUsuarios from './ListaUsuarios';
+import React from 'react'
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
 function NavBar() {
