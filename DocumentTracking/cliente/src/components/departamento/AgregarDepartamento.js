@@ -7,9 +7,15 @@ import NavBar from '../NavBar';
 function AgregarDepartamento(){
 
     //Hooks 
-    const[nombre,setNombre] = useState('')
+   
+    const[nombre,setNombre] = useState('') 
     const[correo,setEmail]= useState('')
     const[telefono,setTelefono]= useState('')
+    const[descripcion, setDescripcion] = useState('')
+    const[estado, setEstado] = useState('')
+    const[empleados, setEmpleados] = useState('')
+    const[tramites, setTramites] = useState('')
+   
 
 
     function agregarDepartamento(){
@@ -17,7 +23,12 @@ function AgregarDepartamento(){
             nombre: nombre,
             correo: correo,
             telefono: telefono,
-            idUsuario: uniquid()
+            descripcion: descripcion,
+            estado: estado,
+            empleados: empleados,
+            tramites: tramites,
+            idDepartamento: uniquid()
+
         }
 
         console.log(departamento)
@@ -54,6 +65,22 @@ function AgregarDepartamento(){
                     <div className='mb-3'>
                         <label htmlFor='telefono' className='form-label'>Telefono</label>
                         <input type="text" className='form-control' value = {telefono} onChange = {(e)=>{setTelefono(e.target.value )}}></input>
+                    </div>
+
+                    <div className='mb-3'>
+                        <label htmlFor='descripcion' className='form-label'>Descripcion</label>
+                        <input type="text" className='form-control' value = {descripcion} onChange = {(e)=>{setDescripcion(e.target.value )}}></input>
+                    </div>
+
+
+                    <div className='mb-3'>
+                        <label htmlFor='estado' className='form-label'>Estado</label>
+                        <input type="text" className='form-control' value = {estado} onChange = {(e)=>{setEstado(e.target.value )}}></input>
+                    </div>
+
+                    <div className='mb-3'>
+                        <label htmlFor='tramites' className='form-label'>Tramites</label>
+                        <input type="text" className='form-control' value = {tramites} onChange = {(e)=>{setTramites(e.target.value )}}></input>
                     </div>
 
                     <button onClick={agregarDepartamento} className='btn btn-success'>Guardar Departamento</button>
