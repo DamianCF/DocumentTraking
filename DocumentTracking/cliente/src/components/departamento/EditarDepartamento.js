@@ -2,8 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import NavBar from '../NavBar'
-import NavBarDep from './NavBarDep'
 
+var idDEP;
 
 function EditarDepartamento() {
 
@@ -28,7 +28,7 @@ function EditarDepartamento() {
             setDescripcion(datadepartamento.descripcion)
             setCorreo(datadepartamento.correo)
             setTelefono(datadepartamento.telefono)
-
+            idDEP = params.idDepartamento;
         })
     }, [])
 
@@ -41,7 +41,7 @@ function EditarDepartamento() {
             descripcion: descripcion,
             correo: correo,
             telefono: telefono,
-            idusuario: params.idusuario
+            idDepartamento: params.idDepartamento
         }
 
         // hacer peticion usando axios
@@ -56,40 +56,53 @@ function EditarDepartamento() {
 
 
     return (
-        <div className='container'>
-       <NavBar/> 
-        <NavBarDep/>
 
-            {/* <div className='row'>
-                <h4 className='mt-4'> Editar depatamento</h4>
-            </div> */}
+        <div>
+            <NavBar />
 
-            <div className='row'>
-                <div className='col-sm-6 offset-3'>
+            <h3>Departamento</h3>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Infomacion Departamento</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={`/editartramitesdepartamento/${idDEP}`}>Tramites</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
+                </li>
+            </ul>
 
-                    <div className='mb-3'>
-                        <label htmlFor='nombre' className='form-label'>Nombre</label>
-                        <input type="text" className='form-control' value={nombre} onChange={(e) => { setNombre(e.target.value) }}></input>
+
+            <div className='container'>
+
+                <div className='row'>
+                    <div className='col-sm-6 offset-3'>
+
+                        <div className='mb-3'>
+                            <label htmlFor='nombre' className='form-label'>Nombre</label>
+                            <input type="text" className='form-control' value={nombre} onChange={(e) => { setNombre(e.target.value) }}></input>
+                        </div>
+
+                        <div className='mb-3'>
+                            <label htmlFor='descripcion' className='form-label'>Descripcion</label>
+                            <input type="text" className='form-control' value={descripcion} onChange={(e) => { setDescripcion(e.target.value) }}></input>
+                        </div>
+
+                        <div className='mb-3'>
+                            <label htmlFor='correo' className='form-label'>Correo</label>
+                            <input type="correo" className='form-control' value={correo} onChange={(e) => { setCorreo(e.target.value) }}></input>
+                        </div>
+
+                        <div className='mb-3'>
+                            <label htmlFor='telefono' className='form-label'>Telefono</label>
+                            <input type="text" className='form-control' value={telefono} onChange={(e) => { setTelefono(e.target.value) }}></input>
+                        </div>
+
+                        <button onClick={editarDepartamento} className='btn btn-success'>Editar Departamento</button>
+                        <button className="btn btn-secondary">Cancelar</button>
+
                     </div>
-
-                    <div className='mb-3'>
-                        <label htmlFor='descripcion' className='form-label'>Descripcion</label>
-                        <input type="text" className='form-control' value={descripcion} onChange={(e) => { setDescripcion(e.target.value) }}></input>
-                    </div>
-
-                    <div className='mb-3'>
-                        <label htmlFor='correo' className='form-label'>Correo</label>
-                        <input type="correo" className='form-control' value={correo} onChange={(e) => { setCorreo(e.target.value) }}></input>
-                    </div>
-
-                    <div className='mb-3'>
-                        <label htmlFor='telefono' className='form-label'>Telefono</label>
-                        <input type="text" className='form-control' value={telefono} onChange={(e) => { setTelefono(e.target.value) }}></input>
-                    </div>
-
-                    <button onClick={editarDepartamento} className='btn btn-success'>Editar Departamento</button>
-                    <button  className="btn btn-secondary">Cancelar</button>
-
                 </div>
             </div>
         </div>
