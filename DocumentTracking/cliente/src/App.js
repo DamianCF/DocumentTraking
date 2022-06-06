@@ -9,6 +9,8 @@ import EditarDepartamento from './components/departamento/EditarDepartamento';
 import AgregarDepartamento from './components/departamento/AgregarDepartamento';
 import Tramitesdepartamento from './components/departamento/TramitesDepartamento';
 import EmpleadosDepartamento from './components/departamento/EmpleadosDepartamento';
+import ListarCasos from './components/caso/ListarCasos';
+import EditarCaso from './components/caso/EditarCaso';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
           <Route path='/tramites' element={<ListarTramites />} exact></Route>
           <Route path='/documentos' element={<ListarDocumentos />} exact></Route>
           <Route path='/empleados' element={<ListarEmpleados />} exact></Route>
+          <Route path='/casos' element={<ListarCasos />} exact></Route>
+          <Route path='/editarCaso' element={<EditarCaso />} exact></Route>
 
           {/* <Route path='/editarusuario/:idusuario' element={<EditarUsuario />} exact></Route>
           <Route path='/agregardepartamento' element={<AgregarDepartamento />} exact></Route> */}
