@@ -2,19 +2,20 @@ import React, {useState} from 'react'
 import uniquid from 'uniquid'
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import NavBar from '../NavBar';
 
 function AgregarDepartamento(){
 
     //Hooks 
     const[nombre,setNombre] = useState('')
-    const[email,setEmail]= useState('')
+    const[correo,setEmail]= useState('')
     const[telefono,setTelefono]= useState('')
 
 
     function agregarDepartamento(){
         var departamento = {
             nombre: nombre,
-            email: email,
+            correo: correo,
             telefono: telefono,
             idUsuario: uniquid()
         }
@@ -31,7 +32,7 @@ function AgregarDepartamento(){
 
     return(
         <div className='container'>
-
+            <NavBar/>
 
             <div className='row'>
                     <h2 className='mt-4'> Crear nuevo departamento</h2>
@@ -46,8 +47,8 @@ function AgregarDepartamento(){
                     </div>
 
                     <div className='mb-3'>
-                        <label htmlFor='email' className='form-label'>Email</label>
-                        <input type="email" className='form-control'  value = {email} onChange = {(e)=>{setEmail(e.target.value )}}></input>
+                        <label htmlFor='correo' className='form-label'>Email</label>
+                        <input type="correo" className='form-control'  value = {correo} onChange = {(e)=>{setEmail(e.target.value )}}></input>
                     </div>
 
                     <div className='mb-3'>

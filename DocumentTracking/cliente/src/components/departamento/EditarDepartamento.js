@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import uniquid from 'uniquid'
 import NavBar from '../NavBar'
 import NavBarDep from './NavBarDep'
 
@@ -35,9 +34,9 @@ function EditarDepartamento() {
 
     //funcion que actualiza
 
-    function editarUsuario() {
+    function editarDepartamento() {
         // Nuevo objeto para actualizar usuario
-        const actualizarusuario = {
+        const actualizardepartamento = {
             nombre: nombre,
             descripcion: descripcion,
             correo: correo,
@@ -46,7 +45,7 @@ function EditarDepartamento() {
         }
 
         // hacer peticion usando axios
-        axios.post('/api/usuario/actualizausuario', actualizarusuario)
+        axios.post('/api/usuario/actualizadepartamento', actualizardepartamento)
             .then(res => {
                 console.log(res.data)
                 alert(res.data)
@@ -88,7 +87,7 @@ function EditarDepartamento() {
                         <input type="text" className='form-control' value={telefono} onChange={(e) => { setTelefono(e.target.value) }}></input>
                     </div>
 
-                    <button onClick={editarUsuario} className='btn btn-success'>Editar Departamento</button>
+                    <button onClick={editarDepartamento} className='btn btn-success'>Editar Departamento</button>
                     <button  className="btn btn-secondary">Cancelar</button>
 
                 </div>
