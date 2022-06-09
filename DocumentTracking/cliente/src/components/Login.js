@@ -1,46 +1,87 @@
-import React, { useState } from 'react'
-import uniquid from 'uniquid'
+import React, { useState, useEffect, Redirect } from 'react'
 import axios from 'axios'
-import Swal from 'sweetalert2'
-import Principal from './Principal'
-import {BrowserRouter,Routes, Route} from 'react-router-dom'
+import EmpleadoIndividual from './empleado/EmpleadoIndividual'
+
 
 function Login() {
+
+    const [cedula, setCedula] = useState('');
+    const [clave, setClave] = useState('');
+    var bandera = false;
+
+    function validarEmpleado() {
+
+        axios.post('/api/usuario/obtenerdataempleadologin', { cedula: cedula, clave: clave }).then(res => {
+
+            console.log(res.data[0])
+            const datausuario = res.data[0]
+
+            if (res.data[0]) {
+                sessionStorage.setItem("idEmpleado", datausuario.idEmpleado);
+                sessionStorage.setItem("nombre", datausuario.nombre);
+                sessionStorage.setItem("pApellido", datausuario.pApellido);
+                sessionStorage.setItem("cedula", datausuario.cedula);
+                sessionStorage.setItem("rol", datausuario.rol);
+
+                localStorage.setItem("idEmpresa", datausuario.idEmpresa);
+                bandera = true;
+            }
+
+        }).catch(err => { console.log(err) }
+        )
+
+        if (bandera) {
+
+            console.log(localStorage.getItem("idEmpleado"));
+            window.location.href = "/principal";
+
+
+        } else {
+            alert("cedula  o contraseña incorrecta");
+        }
+
+    }
+
+
+
     return (
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 offset-md-4">
-                    <div class="login-form bg-light mt-4 p-4">
-                        <form action="" method="" class="row g-3">
-                            <h4>Inicio de sesion</h4>
-                            <div class="col-12">
-                                <label>Usuario</label>
-                                <input type="text" name="username" class="form-control" placeholder="Username"/>
+        <div className="container">
+            <br />
+            <div>
+                <h1>Document Tracking</h1>
+            </div>
+
+            <div className="row">
+                <div className="col-md-4 offset-md-4">
+                    <div className="login-form bg-light mt-4 p-4">
+                        <form action="" method="" className="row g-3">
+                            <h4>Inicio de Sesion</h4>
+                            <div className="col-12">
+                                <label htmlFor='cedula'>Cedula</label>
+                                <input type="text" name="cedula" id="cedula" className="form-control" placeholder="Cedula" value={cedula} onChange={(e) => { setCedula(e.target.value) }} />
                             </div>
-                            <div class="col-12">
-                                <label>Clave</label>
-                                <input type="password" name="password" class="form-control" placeholder="Password"/>
+                            <div className="col-12">
+                                <label htmlFor='password'>Clave</label>
+                                <input type="password" name="password" id="password" className="form-control" placeholder="Contraseña" value={clave} onChange={(e) => { setClave(e.target.value) }} />
                             </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="rememberMe"/>
-                                        <label class="form-check-label" for="rememberMe"> Recordarme</label>
+                            <div className="col-12">
+                                <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="rememberMe" />
+                                    <label className="form-check-label" htmlFor="rememberMe"> Recordarme</label>
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-dark float-end" href="principal" >iniciar</button>
-                            </div>
+                            <button type="button" className="btn btn-dark float-end" onClick={validarEmpleado}>Iniciar</button>
                         </form>
-                        <hr class="mt-4"/>
-                            <div class="col-12">
-                                <p class="text-center mb-0">No estas registrado? <a href="#">Registrarse</a></p>
-                            </div>
+                        <hr className="mt-4" />
+                        <div className="col-12">
+                            <p className="text-center mb-0">No estas registrado? <a href="#">Registrarse</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-       
-    
+
+
         </div>
 
     )

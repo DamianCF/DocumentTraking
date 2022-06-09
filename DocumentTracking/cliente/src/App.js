@@ -11,6 +11,7 @@ import Tramitesdepartamento from './components/departamento/TramitesDepartamento
 import EmpleadosDepartamento from './components/departamento/EmpleadosDepartamento';
 import ListarCasos from './components/caso/ListarCasos';
 import EditarCaso from './components/caso/EditarCaso';
+import Login from './components/Login';
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
 
     <BrowserRouter>
       <Routes>
-          <Route path= '/' element = {<Principal/>} exact ></Route>
+          <Route path= '/' element = {<Login/>} exact ></Route>
           <Route path= '/principal' element = {<Principal/>} exact ></Route>
           <Route path='/departamentos' element={<ListarDepartamentos />} exact></Route>
           <Route path='/agregardepartamento' element={<AgregarDepartamento/>} exact></Route>
@@ -30,10 +31,8 @@ function App() {
           <Route path='/documentos' element={<ListarDocumentos />} exact></Route>
           <Route path='/empleados' element={<ListarEmpleados />} exact></Route>
           <Route path='/casos' element={<ListarCasos />} exact></Route>
-          <Route path='/editarCaso' element={<EditarCaso />} exact></Route>
+          {/* <Route path='/editarCaso' element={<EditarCaso />} exact></Route> */}
 
-          {/* <Route path='/editarusuario/:idusuario' element={<EditarUsuario />} exact></Route>
-          <Route path='/agregardepartamento' element={<AgregarDepartamento />} exact></Route> */}
       
       </Routes>
     </BrowserRouter>
@@ -42,3 +41,6 @@ function App() {
 }
 
 export default App;
+
+// {/* <Route path='/editarusuario/:idusuario' element={<EditarUsuario />} exact></Route>
+// <Route path='/agregardepartamento' element={<AgregarDepartamento />} exact></Route> */}

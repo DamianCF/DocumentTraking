@@ -78,6 +78,19 @@ router.post('/obtenerdataempleado', (req, res) =>{
 } )
 
 
+
+// obtener data de empleado LOGIN
+router.post('/obtenerdataempleadologin', (req, res) =>{
+    ModeloEmpleado.find({cedula:req.body.cedula, clave:req.body.clave}, function (docs , err){
+        if(!err){
+            res.send(docs)
+        }else{
+            res.send(err)
+        }
+    })
+} )
+
+
 //Actualiza empleado
 router.post('/actualizarempleado', (req, res) => {
 
