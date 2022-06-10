@@ -29,16 +29,17 @@ function EmpresaIndividual({ empresa }) {
 
     return (
         <div>
-            {/* <div className='container'>
+            <div className='container'>
                 <div className='row'>
 
                     <div className='col-sm-6 offset-3'  data-aos= "flip-right">
 
                         <ul className='list-group'>
-                            <li className='list-group-item'>{empresa.idEmpresa}</li>
-                            <li className='list-group-item'>{empresa.nombre}</li>
-                            <li className='list-group-item'>{empresa.email}</li>
-                            <li className='list-group-item'>{empresa.telefono}</li>
+                            <li className='list-group-item' hidden = "true">{empresa.idEmpresa}</li>
+                            <li className='list-group-item'>{ "Nombre: " + empresa.nombre}</li>
+                            <li className='list-group-item'>{"Negocio: "+ empresa.indoleNegocio}</li>
+                            <li className='list-group-item'>{"Correo: " + empresa.correo}</li>
+                            <li className='list-group-item'>{"Telefono: " + empresa.telefono}</li>
                         </ul>
 
                         <Link to={`/editarempresa/${empresa.idUsuario}`}><li className='btn btn-success'>Editar</li></Link>
@@ -49,7 +50,7 @@ function EmpresaIndividual({ empresa }) {
                     </div>
 
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 }

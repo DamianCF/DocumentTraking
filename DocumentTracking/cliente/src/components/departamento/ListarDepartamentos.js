@@ -12,7 +12,7 @@ function Listardepartamentos() {
     const[datadepartamentos,setdatadepartamento] = useState([])
 
     useEffect( () => {
-            axios.get('api/usuario/obtenerdepartamentos').then(res => {
+            axios.post('api/usuario/obtenerdepartamentosempresa', { idEmpresa : localStorage.getItem("idEmpresa") , estado: "A" }).then(res => {
                 console.log(res.data)
                 setdatadepartamento(res.data)
             }).catch( err =>{console.log(err)}
@@ -38,19 +38,19 @@ function Listardepartamentos() {
                 <h1>
                     Departamentos
                 </h1>
-                <a class="nav-link" href="/agregardepartamento">Agregar Departamento</a>
+                <a className="nav-link" href="/agregardepartamento">Agregar Departamento</a>
                 <hr/>
                 {listadepartamentos}
             </div>
 
-            {/* <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+            {/* <div className="list-group">
+                <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
                     The current link item
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-                <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
+                <a href="#" className="list-group-item list-group-item-action">A second link item</a>
+                <a href="#" className="list-group-item list-group-item-action">A third link item</a>
+                <a href="#" className="list-group-item list-group-item-action">A fourth link item</a>
+                <a className="list-group-item list-group-item-action disabled">A disabled link item</a>
             </div> */}
         </div>
 

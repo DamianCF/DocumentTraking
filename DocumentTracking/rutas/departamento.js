@@ -60,6 +60,17 @@ router.get('/obtenerdepartamentos', (req, res) =>{
     })
 } )
 
+// obtener todos los departamentos
+router.post('/obtenerdepartamentosempresa', (req, res) =>{
+    ModeloDepartamento.find({idEmpresa:req.body.idEmpresa , estado : req.body.estado}, function (docs , err){
+        if(!err){
+            res.send(docs)
+        }else{
+            res.send(err)
+        }
+    })
+} )
+
 // obtener data de departamento
 router.post('/obtenerdatadepartamento', (req, res) =>{
     ModeloDepartamento.find({idDepartamento:req.body.idDepartamento}, function (docs , err){

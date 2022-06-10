@@ -7,16 +7,20 @@ function Login() {
 
     const [cedula, setCedula] = useState('');
     const [clave, setClave] = useState('');
-    var bandera = false;
+
 
     function validarEmpleado() {
 
-        axios.post('/api/usuario/obtenerdataempleadologin', { cedula: cedula, clave: clave }).then(res => {
+        /// PROBLEMAS CON LIMPIAR ESTO
+        sessionStorage.clear();
+        localStorage.clear();
+
+        axios.post('/api/usuario/obtenerdataempleadologin', { cedula: cedula, clave: clave , estado: "A" }).then(res => {
 
             console.log(res.data[0])
             const datausuario = res.data[0]
 
-            if (res.data[0]) {
+            if (res.data[0] && datausuario.cedula == cedula && datausuario.clave == clave ) { 
                 sessionStorage.setItem("idEmpleado", datausuario.idEmpleado);
                 sessionStorage.setItem("nombre", datausuario.nombre);
                 sessionStorage.setItem("pApellido", datausuario.pApellido);
@@ -24,22 +28,21 @@ function Login() {
                 sessionStorage.setItem("rol", datausuario.rol);
 
                 localStorage.setItem("idEmpresa", datausuario.idEmpresa);
-                bandera = true;
+
+                console.log(localStorage.getItem("idEmpleado"));
+                window.location.href = "/principal";
+
+            } else {
+                alert("cedula  o contraseña incorrecta");
             }
+
+
 
         }).catch(err => { console.log(err) }
         )
 
-        if (bandera) {
-
-            console.log(localStorage.getItem("idEmpleado"));
-            window.location.href = "/principal";
-
-
-        } else {
-            alert("cedula  o contraseña incorrecta");
-        }
-
+        setCedula('');
+        setClave('');
     }
 
 
