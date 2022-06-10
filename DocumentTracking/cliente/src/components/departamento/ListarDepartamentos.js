@@ -12,7 +12,7 @@ function Listardepartamentos() {
     const[datadepartamentos,setdatadepartamento] = useState([])
 
     useEffect( () => {
-            axios.post('api/usuario/obtenerdepartamentosempresa', { idEmpresa : localStorage.getItem("idEmpresa") , estado: "A" }).then(res => {
+            axios.post('api/usuario/obtenerdepartamentos', { estado: "A" }).then(res => {
                 console.log(res.data)
                 setdatadepartamento(res.data)
             }).catch( err =>{console.log(err)}

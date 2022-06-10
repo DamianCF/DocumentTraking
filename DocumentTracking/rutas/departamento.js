@@ -49,20 +49,20 @@ router.post('/agregardepartamento', (req, res) => {
     })
 })
 
-// obtener todos los departamentos
-router.get('/obtenerdepartamentos', (req, res) =>{
-    ModeloDepartamento.find({}, function (docs , err){
-        if(!err){
-            res.send(docs)
-        }else{
-            res.send(err)
-        }
-    })
-} )
+// // obtener todos los departamentos
+// router.get('/obtenerdepartamentos', (req, res) =>{
+//     ModeloDepartamento.find({}, function (docs , err){
+//         if(!err){
+//             res.send(docs)
+//         }else{
+//             res.send(err)
+//         }
+//     })
+// } )
 
 // obtener todos los departamentos
-router.post('/obtenerdepartamentosempresa', (req, res) =>{
-    ModeloDepartamento.find({idEmpresa:req.body.idEmpresa , estado : req.body.estado}, function (docs , err){
+router.post('/obtenerdepartamentos', (req, res) =>{
+    ModeloDepartamento.find({estado : req.body.estado}, function (docs , err){
         if(!err){
             res.send(docs)
         }else{
