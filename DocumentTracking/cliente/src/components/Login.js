@@ -1,6 +1,5 @@
-import React, { useState, useEffect, Redirect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import EmpleadoIndividual from './empleado/EmpleadoIndividual'
 
 
 function Login() {
@@ -26,8 +25,6 @@ function Login() {
                 sessionStorage.setItem("pApellido", datausuario.pApellido);
                 sessionStorage.setItem("cedula", datausuario.cedula);
                 sessionStorage.setItem("rol", datausuario.rol);
-
-                localStorage.setItem("idEmpresa", datausuario.idEmpresa);
 
                 console.log(localStorage.getItem("idEmpleado"));
                 window.location.href = "/principal";

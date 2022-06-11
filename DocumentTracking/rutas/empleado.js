@@ -7,7 +7,7 @@ const eschema  = mongoose.Schema
 
 const eschemaempleado = new eschema({
     idEmpleado: {type: String ,required: true , unique: true},
-    idEmpresa: {type: String ,required: true},
+   // idEmpresa: {type: String ,required: true},
     nombre:{type: String ,required: true},
     pApellido:{type: String ,required: true},
     sApellido:String,
@@ -29,7 +29,7 @@ router.post('/agregarempleado', (req, res) => {
 
     const nuevoempleado = new ModeloEmpleado({
         idEmpleado: req.body.idEmpleado,
-        idEmpresa: req.body.idEmpresa,
+        //idEmpresa: req.body.idEmpresa,
         nombre: req.body.nombre,
         pApellido: req.body.pApellido,
         sApellido: req.body.sApellido,
@@ -96,7 +96,7 @@ router.post('/actualizarempleado', (req, res) => {
 
     ModeloEmpleado.findOneAndUpdate({idEmpleado:req.body.idEmpleado},{
         idEmpleado: req.body.idEmpleado,
-        idEmpresa: req.body.idEmpresa,
+       // idEmpresa: req.body.idEmpresa,
         nombre: req.body.nombre,
         pApellido: req.body.pApellido,
         sApellido: req.body.sApellido,
