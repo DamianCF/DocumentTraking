@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "6289426d6453b0d49518f96e"
+  },
+  "idJefe": "gsdg25tgw5egtvf",
+  "nombre": "bbbbbb",
+  "descripcion": "klsnflsf",
+  "estado": "A",
+  "empleados": [
+    "628943d56453b0d49518f982"
+  ],
+  "tramites": [
+    "628946d56453b0d49518f987"
+  ],
+  "idDepartamento": "628947176453b0d49518f988",
+  "correo": "depAgricola@gmail.com",
+  "telefono": "35657656453"
+},{
+  "_id": {
+    "$oid": "62a117eed13e38a729d91d82"
+  },
+  "idDepartamento": "jhsfhdfj764347g",
+  "idJefe": "gsdg25tgw5egtvf",
+  "nombre": "Contabilidad",
+  "descripcion": "numeros y hacienda",
+  "estado": "A",
+  "telefono": 894376677,
+  "correo": "conta@gmail.com",
+  "empleados": [
+    "RONALD",
+    "DAMIAN"
+  ],
+  "tramites": [
+    "ADSDDS",
+    "SDDDDDD"
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a5159cc4c1b1adf75bf2e8"
+  },
+  "idDepartamento": "cknnmgvv8bc0",
+  "nombre": "fbg",
+  "descripcion": "dsfb",
+  "estado": "A",
+  "telefono": 2424,
+  "correo": "bdsbsd",
+  "empleados": [],
+  "tramites": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a519ecc4c1b1adf75bf312"
+  },
+  "idDepartamento": "ckno0k5olwg0",
+  "nombre": "fdmj",
+  "descripcion": "dghmdghm",
+  "estado": "A",
+  "telefono": 54657687,
+  "correo": "dghmdgh@sdfbdgfnh",
+  "empleados": [],
+  "tramites": [],
+  "__v": 0
+}]

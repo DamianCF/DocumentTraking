@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "628946bd6453b0d49518f986"
+  },
+  "idTramite": "628946d56453b0d49518f987",
+  "descripcion": "prueba tramite curioso",
+  "estado": "A",
+  "documentos": [
+    "628947da6453b0d49518f98e"
+  ],
+  "cicloTramite": [
+    {
+      "idDepartamento": "628947176453b0d49518f988",
+      "estadoAceptacion": "A",
+      "detalles": "sdfdg",
+      "isActual": false
+    }
+  ],
+  "casos": [
+    "62894c526453b0d49518f9ac"
+  ]
+},{
+  "_id": {
+    "$oid": "6296e8ae9ae98e926e892fad"
+  },
+  "idTramite": "6296e8a17ebffb8dda14e1fd",
+  "descripcion": "terminator",
+  "estado": "A",
+  "documentos": [
+    "628947da6453b0d49518f98e"
+  ],
+  "cicloTramite": [
+    {
+      "idDepartamento": "628947176453b0d49518f988",
+      "estadoAceptacion": "A",
+      "detalles": "sdfdg",
+      "isActual": false
+    }
+  ],
+  "casos": [
+    "62894c526453b0d49518f9ac"
+  ]
+}]
