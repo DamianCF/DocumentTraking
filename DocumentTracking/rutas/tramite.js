@@ -55,9 +55,22 @@ router.get('/obtenertramites', (req, res) =>{
     })
 } )
 
+// // obtener data de tramite
+// router.post('/obtenerdatatramite', (req, res) =>{
+//     console.log(req.body.idTramite);
+//     ModeloTramite.find({idTramite:req.body.idTramite}, function (docs , err){
+//         if(!err){
+//             res.send(docs)
+//         }else{
+//             res.send(err)
+//         }
+//     })
+// } )
+
 // obtener data de tramite
 router.post('/obtenerdatatramite', (req, res) =>{
-    ModeloTramite.find({idTramite:req.body.idTramite}, function (docs , err){
+    console.log(req.body.tramite)
+    ModeloTramite.find({idTramite:req.body.tramite}, function (docs , err){
         if(!err){
             res.send(docs)
         }else{

@@ -61,15 +61,15 @@ function EditarDepartamento() {
             <NavBar />
 
             <h3>Departamento</h3>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Infomacion Departamento</a>
+            <ul className="nav nav-tabs">
+                <li className="nav-item">
+                    <a className="nav-link active" aria-current="page" href="#">Infomacion Departamento</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href={`/editartramitesdepartamento/${idDEP}`}>Tramites</a>
+                <li className="nav-item">
+                    <a className="nav-link" href={`/editartramitesdepartamento/${idDEP}`}>Tramites</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
+                <li className="nav-item">
+                    <a className="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
                 </li>
             </ul>
 
