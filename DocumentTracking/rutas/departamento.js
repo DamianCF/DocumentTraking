@@ -7,8 +7,8 @@ const eschema  = mongoose.Schema
 
 const eschemadepartamento = new eschema({
     idDepartamento: {type: String ,required: true, unique: true},
-    idEmpresa: {type: String ,required: true},
-    idJefe:{type: String ,required: true},
+  //  idEmpresa: {type: String ,required: true},
+    idJefe:{type: String },
     nombre: {type: String ,required: true},
     descripcion: String,
     estado: {type: String , enum: ['A', 'I'] , default : 'A' ,required: true},
@@ -26,7 +26,7 @@ router.post('/agregardepartamento', (req, res) => {
 
     const nuevousuario = new ModeloDepartamento({
         idDepartamento: req.body.idDepartamento,
-        idEmpresa: req.body.idEmpresa,
+       // idEmpresa: req.body.idEmpresa,
         idJefe: req.body.idJefe,
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,
@@ -49,9 +49,20 @@ router.post('/agregardepartamento', (req, res) => {
     })
 })
 
+// // obtener todos los departamentos
+// router.get('/obtenerdepartamentos', (req, res) =>{
+//     ModeloDepartamento.find({}, function (docs , err){
+//         if(!err){
+//             res.send(docs)
+//         }else{
+//             res.send(err)
+//         }
+//     })
+// } )
+
 // obtener todos los departamentos
-router.get('/obtenerdepartamentos', (req, res) =>{
-    ModeloDepartamento.find({}, function (docs , err){
+router.post('/obtenerdepartamentos', (req, res) =>{
+    ModeloDepartamento.find({estado : req.body.estado}, function (docs , err){
         if(!err){
             res.send(docs)
         }else{
@@ -77,7 +88,7 @@ router.post('/actualizardepartamento', (req, res) => {
 
     ModeloDepartamento.findOneAndUpdate({idDepartamento:req.body.idDepartamento},{
         idDepartamento: req.body.idDepartamento,
-        idEmpresa: req.body.idEmpresa,
+      //  idEmpresa: req.body.idEmpresa,
         idJefe: req.body.idJefe,
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,

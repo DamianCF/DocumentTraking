@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const { model } = require('../conexion')
 const eschema  = mongoose.Schema
 
-//Esquema bitacora
+
 const eschemaBitacora = new eschema({
     fechaIni: Date,
     fechaFin: Date
@@ -56,7 +56,7 @@ router.post('/agregarCaso', (req, res) => {
 })
 
 // obtener todas los caso
-router.get('/obtenerCaso', (req, res) =>{
+router.get('/obtenerCasos', (req, res) =>{
     ModeloCaso.find({}, function (docs , err){
         if(!err){
             res.send(docs)
@@ -66,7 +66,7 @@ router.get('/obtenerCaso', (req, res) =>{
     })
 } )
 
-// obtener data de caso
+// obtener data de caso 
 router.post('/obtenerdataCaso', (req, res) =>{
     ModeloCaso.find({idCaso:req.body.idCaso}, function (docs , err){
         if(!err){

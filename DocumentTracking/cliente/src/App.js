@@ -1,49 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
-import ListaUsuarios from './ListaUsuarios';
-import AgregarUsuario from './AgregarUsuario';
-import EditarUsuario from './EditarUsuario';
+import './css/App.css';
+import Principal from './components/Principal';
 import {BrowserRouter,Routes, Route} from 'react-router-dom'
-import AgregarDepartamento from './AgregarDepartamento';
+import ListarDepartamentos from './components/departamento/ListarDepartamentos';
+import ListarTramites from './components/tramite/ListarTramites';
+import ListarDocumentos from './components/documento/ListarDocumentos';
+import ListarEmpleados from './components/empleado/ListarEmpleados';
+import EditarDepartamento from './components/departamento/EditarDepartamento';
+import AgregarDepartamento from './components/departamento/AgregarDepartamento';
+import Tramitesdepartamento from './components/departamento/TramitesDepartamento';
+import EmpleadosDepartamento from './components/departamento/EmpleadosDepartamento';
+import ListarCasos from './components/caso/ListarCasos';
+import EditarCaso from './components/caso/EditarCaso';
+import Login from './components/Login';
+
 
 function App() {
   return (
     <div className="App">
-          <nav className ="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div className="container">
-            <a className="navbar-brand" href="/"> Crud Mern Stack</a>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">Inicio</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="agregarusuario">Agregar Usuario</a>
-                </li>
-                
-                <li className="nav-item">
-                  <a className="nav-link" href="agregardepartamento">Agregar Departamento</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
 
     <BrowserRouter>
       <Routes>
-          <Route path= '/' element = {<ListaUsuarios/>} exact ></Route>
-          <Route path= '/agregarusuario' element = {<AgregarUsuario/>} exact></Route>
-          <Route path= '/editarusuario/:idusuario' element = {<EditarUsuario/>} exact></Route>
-          <Route path= '/agregardepartamento' element = {<AgregarDepartamento/>} exact></Route>
+          <Route path= '/' element = {<Login/>} exact ></Route>
+          <Route path= '/principal' element = {<Principal/>} exact ></Route>
+          <Route path='/departamentos' element={<ListarDepartamentos />} exact></Route>
+          <Route path='/agregardepartamento' element={<AgregarDepartamento/>} exact></Route>
+          <Route path='/editardepartamento/:idDepartamento' element={<EditarDepartamento />} exact></Route>
+          <Route path='/editartramitesdepartamento/:idDepartamento' element={<Tramitesdepartamento />} exact></Route>
+          <Route path='/editarempleadosdepartamento/:idDepartamento' element={<EmpleadosDepartamento />} exact></Route>
+          <Route path='/tramites' element={<ListarTramites />} exact></Route>
+          <Route path='/documentos' element={<ListarDocumentos />} exact></Route>
+          <Route path='/empleados' element={<ListarEmpleados />} exact></Route>
+          <Route path='/casos' element={<ListarCasos />} exact></Route>
+          {/* <Route path='/editarCaso' element={<EditarCaso />} exact></Route> */}
+
+      
       </Routes>
-
     </BrowserRouter>
-
     </div>
   );
 }
 
 export default App;
+
+// {/* <Route path='/editarusuario/:idusuario' element={<EditarUsuario />} exact></Route>
+// <Route path='/agregardepartamento' element={<AgregarDepartamento />} exact></Route> */}
