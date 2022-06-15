@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from '../NavBar';
 
 
+
 function ListarDocumentos() {
     return (
 
@@ -9,7 +10,7 @@ function ListarDocumentos() {
             <NavBar/>
 
             <div>
-                <h1>
+                <h1 class="Titulos">
                     Documentos
                 </h1>
             </div>

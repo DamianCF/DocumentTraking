@@ -9,7 +9,7 @@ function ListarTramites() {
             <NavBar/>
 
             <div>
-                <h1>
+                <h1 class="Titulos">
                     Tramites
                 </h1>
             </div>

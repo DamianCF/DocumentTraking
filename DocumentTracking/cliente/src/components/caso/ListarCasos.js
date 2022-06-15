@@ -2,7 +2,7 @@ import NavBar from '../NavBar';
 import React, { useEffect, useState } from 'react'
 import CasoIndividual from './CasoIndividual'
 import axios from 'axios'
-import '../../App.css';
+
 
 function ListarCasos() {
 
@@ -26,7 +26,7 @@ function ListarCasos() {
 
     return (
         <div >
-            <NavBar/>
+            <NavBar/> 
             <div >
                 <h1 class="Titulos"> 
                     Casos
