@@ -45,7 +45,7 @@ function EditarDepartamento() {
         }
 
         // hacer peticion usando axios
-        axios.post('/api/usuario/actualizadepartamento', actualizardepartamento)
+        axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
             .then(res => {
                 console.log(res.data)
                 alert(res.data)
