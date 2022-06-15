@@ -46,13 +46,14 @@ function Login() {
 
     return (
 
+        
         <div className="container">
             <br />
-            <div>
+            <div className="Login">
                 <h1>Document Tracking</h1>
             </div>
 
-            <div className="row">
+            <div className="row" >
                 <div className="col-md-4 offset-md-4">
                     <div className="login-form bg-light mt-4 p-4">
                         <form action="" method="" className="row g-3">
