@@ -12,6 +12,7 @@ import EmpleadosDepartamento from './components/departamento/EmpleadosDepartamen
 import ListarCasos from './components/caso/ListarCasos';
 import EditarCaso from './components/caso/EditarCaso';
 import Login from './components/Login';
+import AgregarTramite from './components/tramite/AgregarTramite';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path='/editartramitesdepartamento/:idDepartamento' element={<Tramitesdepartamento />} exact></Route>
           <Route path='/editarempleadosdepartamento/:idDepartamento' element={<EmpleadosDepartamento />} exact></Route>
           <Route path='/tramites' element={<ListarTramites />} exact></Route>
+          <Route path='/agregartramite' element={<AgregarTramite/>} exact></Route>
           <Route path='/documentos' element={<ListarDocumentos />} exact></Route>
           <Route path='/empleados' element={<ListarEmpleados />} exact></Route>
           <Route path='/casos' element={<ListarCasos />} exact></Route>

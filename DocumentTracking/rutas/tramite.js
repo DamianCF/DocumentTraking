@@ -6,7 +6,7 @@ const { model } = require('../conexion')
 const eschema  = mongoose.Schema
 
 const eschemaetapa = new eschema({
-    idDepartamento:{type: String, required: true},
+    idDepartamento:{type: String},//, required: true
     estadoAceptacion : String,
     detalles: String,
     isActual: Boolean
@@ -35,6 +35,8 @@ router.post('/agregartramite', (req, res) => {
         documentos: req.body.documentos,
         cicloTramite: req.body.cicloTramite
     })
+    console.log(nuevotramite)
+
     nuevotramite.save(function(err){
         if(!err){ 
             res.send('Tramite agregado correctamente')

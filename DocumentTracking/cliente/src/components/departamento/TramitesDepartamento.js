@@ -14,7 +14,7 @@ function Tramitesdepartamento() {
     idDEP = params.idDepartamento;
     //console.log("IDDEPARTMANENTO " +idDEP);
 
-    // const[tramites, setTramites] = useState([]);
+    const [tramites, setTramites] = useState([]);
 
     const [datatramites, setdatatramite] = useState([])
 
@@ -33,7 +33,7 @@ function Tramitesdepartamento() {
                 // console.log(tramite)
 
                 axios.post('/api/usuario/obtenerdatatramite', { tramite }).then(res => {
-                    console.log(res.data[0])
+                    //console.log(res.data[0])
                     setdatatramite(...datatramites, res.data);
                 })
 
@@ -43,11 +43,12 @@ function Tramitesdepartamento() {
 
 
 
-        // axios.get('/api/usuario/obtenertramites').then(res => {
-        //     console.log(res.data)
-        //     setdatatramite(res.data)
-        // }).catch( err =>{console.log(err)}
-        // ) // min 1:39:38
+        axios.get('/api/usuario/obtenertramites').then(res => {
+            //console.log(res.data)
+            setTramites(res.data)
+        }).catch(err => { console.log(err) }
+        ) // min 1:39:38
+
     }, [])
 
 
@@ -60,12 +61,42 @@ function Tramitesdepartamento() {
         )
     })
 
+    //mapear listatramitesdep en objeto usuario
+    const listatramites = tramites.map(tramite => {
+        return (
+            <option value={tramite.idTramite}>{tramite.descripcion}</option>
+        )
+    })
+ 
+
+    const agregarTramiteDep = (() => {
+
+        console.log(document.getElementById("select").value)
+
+        
+        // console.log(tramites.find( element =>  element = document.getElementById("select").value))
+    });
+
+
     return (
 
         <div>
+
             <NavBar />
 
             <h3> Tramites de Departamento</h3>
+
+            <div >
+                <select id="select" className="form-select" aria-label="Default select example" >
+                    {listatramites}
+                </select>
+                <br />
+                <button className="btn btn-success" onClick={agregarTramiteDep}>Agregar</button>
+                <br />
+
+            </div>
+
+
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     {/* <a className="nav-link"  href="#">Informacion Departamento</a> */}
@@ -84,11 +115,6 @@ function Tramitesdepartamento() {
 
 
             <div>
-                {/* <h1>
-                    Departamentos
-                </h1> */}
-                {/* <a className="nav-link" href="/agregardepartamento">Agregar Departamento</a>
-                <hr/> */}
                 {listatramitesdep}
             </div>
 
