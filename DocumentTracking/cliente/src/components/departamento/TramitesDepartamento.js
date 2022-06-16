@@ -63,18 +63,26 @@ function Tramitesdepartamento() {
 
     //mapear listatramitesdep en objeto usuario
     const listatramites = tramites.map(tramite => {
-        return (
-            <option value={tramite.idTramite}>{tramite.descripcion}</option>
+
+    // if(datatramites.find(tramite)){
+    //         console.log("hola")
+    //          }
+
+    // console.log(datatramites);
+    return (
+        
+        <option value={tramite.idTramite}>{tramite.descripcion}</option>
+
         )
     })
  
 
     const agregarTramiteDep = (() => {
 
-        console.log(document.getElementById("select").value)
+        // console.log(document.getElementById("select").value)
+         var tramiteSelect = document.getElementById("select").value;
+         console.log(tramiteSelect)
 
-        
-        // console.log(tramites.find( element =>  element = document.getElementById("select").value))
     });
 
 
