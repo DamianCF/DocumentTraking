@@ -9,7 +9,7 @@ function ListarEmpleados() {
             <NavBar/>
 
             <div>
-                <h1>
+                <h1 class="Titulos">
                     Empleados
                 </h1>
             </div>

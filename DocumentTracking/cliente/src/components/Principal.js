@@ -32,7 +32,7 @@ function Principal() {
         <div>
             <NavBar/>
             <div>
-                <h1>
+                <h1 class="Titulos">
                     Inicio Empresa
                 </h1>
                 <hr/>

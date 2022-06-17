@@ -32,7 +32,7 @@ function ListarTramites() {
             <NavBar/>
 
             <div>
-                <h1>
+                <h1 class="Tramites">
                     Tramites
                 </h1>
                 <a className="nav-link" href="/agregartramite">Agregar Tamite</a>

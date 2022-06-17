@@ -17,7 +17,7 @@ function CasoIndividual({ caso }) {
     //Funcion para borrar departamento
     function borrarCaso(iddeCaso){
 
-            axios.post('/api/usuario/borrarCaso', {iddeCaso: iddeCaso}).then(res =>{
+            axios.post('/api/usuario/borrarCaso', {idCaso: iddeCaso}).then(res =>{
                 console.log(res.data)
                 alert(res.data)
                 navegar(0)

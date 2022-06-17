@@ -9,7 +9,7 @@ function ListarDocumentos() {
             <NavBar/>
 
             <div>
-                <h1>
+                <h1 class="Titulos">
                     Documentos
                 </h1>
             </div>
