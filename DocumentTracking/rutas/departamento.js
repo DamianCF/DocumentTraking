@@ -38,7 +38,7 @@ router.post('/agregardepartamento', (req, res) => {
     })
 
     console.log('Informacion del Body');
-    console.log(req.body)
+    //console.log(req.body)
 
     nuevousuario.save(function(err){
         if(!err){ 
