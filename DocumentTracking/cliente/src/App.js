@@ -2,6 +2,7 @@ import './css/App.css';
 import Principal from './components/Principal';
 import {BrowserRouter,Routes, Route} from 'react-router-dom'
 
+
 //Departamentos
 import EditarDepartamento from './components/departamento/EditarDepartamento';
 import AgregarDepartamento from './components/departamento/AgregarDepartamento';
@@ -11,6 +12,7 @@ import ListarDepartamentos from './components/departamento/ListarDepartamentos';
 
 //Tramites
 import ListarTramites from './components/tramite/ListarTramites';
+import AgregarTramite from './components/tramite/AgregarTramite';
 
 //Documentos
 import ListarDocumentos from './components/documento/ListarDocumentos';
@@ -53,12 +55,13 @@ function App() {
           <Route path='/casos' element={<ListarCasos />} exact></Route>
           <Route path='/agregarCaso' element={<AgregarCaso />} exact></Route>
           <Route path='editarCaso/:idCaso'element={<EditarCaso/>} exact></Route>
-
-
+          
+          {/*Tramites*/}
+          <Route path='/agregartramite' element={<AgregarTramite/>} exact></Route>
 
 
           {/* <Route path='/editarCaso' element={<EditarCaso />} exact></Route> */}
-      </Routes>
+      </Routes>     
     </BrowserRouter>
     </div>
   );

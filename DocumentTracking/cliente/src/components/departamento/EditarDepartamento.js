@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import NavBar from '../NavBar'
-
+import Swal from 'sweetalert2'
 var idDEP = '';
 
 function EditarDepartamento() {
@@ -45,13 +45,27 @@ function EditarDepartamento() {
         }
 
         // hacer peticion usando axios
-        axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
+        axios.post('/api/usuario/actualizadepartamento', actualizardepartamento)
             .then(res => {
                 console.log(res.data)
-                alert(res.data)
-                navegar('/')
+                // alert(res.data)
+                // navegar('/')
+                // Swal.fire({
+                //     position: 'top-end',
+                //     icon: 'success',
+                //     title: 'Your work has been saved',
+                //     showConfirmButton: false,
+                //     timer: 1500
+                //   })
             })
-            .then(err => { console.log(err) })
+            .then(err => { 
+                // Swal.fire({
+                //     icon: 'error',
+                //     title: 'Oops...',
+                //     text: 'No se ha podido actualizar el departamento!',
+                //   })
+                console.log(err)
+             })
     }
 
 
@@ -100,6 +114,7 @@ function EditarDepartamento() {
                         </div>
 
                         <button onClick={editarDepartamento} className='btn btn-success'>Editar Departamento</button>
+                        &nbsp;
                         <button className="btn btn-secondary">Cancelar</button>
 
                     </div>

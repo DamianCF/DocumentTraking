@@ -41,9 +41,9 @@ function DepartamentoIndividual({ departamento }) {
                             <li className='list-group-item'>Correo: {departamento.correo} / Telefono: {departamento.telefono}</li>
                         </ul>
 
-                        <Link to={`/editardepartamento/${departamento.idDepartamento}`}><li className='btn btn-success'>Editar</li></Link>
+                        <Link to={`/editardepartamento/${departamento.idDepartamento}`}><li className='btn btn-success'>Seleccionar</li></Link>
                         &nbsp;
-                        <button className="btn btn-danger" onClick={()=>borrardepartamento(departamento.idDepartamento)}>Borrar</button>
+                        <button className="btn btn-danger" onClick={()=>borrardepartamento(departamento.idDepartamento)}>Eliminar</button>
                         <hr className='mt-4'></hr>
 
                     </div>

@@ -18,7 +18,7 @@ function TramiteIndividual({ tramite }) {
     function borrartramite(idTramite){
 
             axios.post('/api/usuario/borrartramite', {idTramite: idTramite}).then(res =>{
-                console.log(res.data)
+                //console.log(res.data)
                 alert(res.data)
                 navegar(0)
             }).catch(err =>{
@@ -35,13 +35,13 @@ function TramiteIndividual({ tramite }) {
                     <div className='col-sm-6 offset-3'  data-aos= "flip-right">
 
                         <ul className='list-group'>
-                            <li className='list-group-item'>{tramite.idTramite}</li>
+                            <li className='list-group-item'  hidden = {true}>{tramite.idTramite}</li>
                             <li className='list-group-item'>{tramite.descripcion}</li>
                         </ul>
 
-                        <Link to={`/editartramite/${tramite.idTramite}`}><li className='btn btn-success'>Editar</li></Link>
+                        <Link to={`/editartramite/${tramite.idTramite}`}><li className='btn btn-success'>Seleccionar</li></Link>
                         &nbsp;
-                        <button className="btn btn-danger" onClick={()=>borrartramite(tramite.idTramite)}>Borrar</button>
+                        <button className="btn btn-danger" onClick={()=>borrartramite(tramite.idTramite)}>Eliminar</button>
                         <hr className='mt-4'></hr>
 
                     </div>
