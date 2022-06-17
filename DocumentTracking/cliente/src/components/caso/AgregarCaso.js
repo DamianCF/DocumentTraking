@@ -11,9 +11,10 @@ function AgregarCaso(){
     const[detalle,setDetalle]= useState('')
 
     function agregarCaso(){
-        var departamento = {
+        var caso = {
             numCaso: numCaso,
             detalle: detalle,
+            idCaso: uniquid()
         }
 
         console.log(caso)
@@ -44,7 +45,7 @@ function AgregarCaso(){
 
                     <div className='mb-3'>
                         <label htmlFor='detalle' className='form-label'>Detalle</label>
-                        <input type="correo" className='form-control'  value = {detalle} onChange = {(e)=>{setEmail(e.target.value )}}></input>
+                        <input type="correo" className='form-control'  value = {detalle} onChange = {(e)=>{setDetalle(e.target.value )}}></input>
                     </div>
 
                     <button onClick={agregarCaso} className='btn btn-success'>Guardar caso</button>

@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.Login{
+  margin-top: 10%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Titulos{
+  margin-top:70px;
+}
+
+.Fondo{
+  background-image: url("https://img.freepik.com/vector-gratis/fondo-onda-blanca-suave_52683-55288.jpg?w=2000");
+}

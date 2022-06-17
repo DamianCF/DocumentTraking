@@ -4,7 +4,6 @@ import CasoIndividual from './CasoIndividual'
 import axios from 'axios'
 
 
-
 function ListarCasos() {
 
     const[dataDeCasos,setdataDeCasos] = useState([])
@@ -26,28 +25,16 @@ function ListarCasos() {
     })
 
     return (
-
-        <div>
-            <NavBar/>
-
-            <div>
-                <h1>
+        <div >
+            <NavBar/> 
+            <div >
+                <h1 class="Titulos"> 
                     Casos
                 </h1>
                 <a class="nav-link" href="/agregarCaso">Agregar Caso</a>
                 <hr/>
                 {listadecasos}
             </div>
-
-            {/* <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                    The current link item
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-                <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
-            </div> */}
         </div>
 
     )

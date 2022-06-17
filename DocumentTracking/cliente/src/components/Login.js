@@ -48,7 +48,7 @@ function Login() {
 
         <div className="container">
             <br />
-            <div>
+            <div className="Login">
                 <h1>Document Tracking</h1>
             </div>
 
