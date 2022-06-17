@@ -5,7 +5,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 
-function UsuarioIndividual({ usuario }) {
+function EmpleadoIndividual({ empleado }) {
 
     const navegar = useNavigate()
 
@@ -14,10 +14,10 @@ function UsuarioIndividual({ usuario }) {
         AOS.init()
     },[])
 
-    //Funcion para borrar usuario
-    function borrarusuario(idusuario){
+    //Funcion para borrar empleado
+    function borrarempleado(idEmpleado){
 
-            axios.post('/api/usuario/borrarusuario', {idusuario: idusuario}).then(res =>{
+            axios.post('/api/usuario/borrarempleado', {idEmpleado: idEmpleado}).then(res =>{
                 console.log(res.data)
                 alert(res.data)
                 navegar(0)
@@ -35,15 +35,15 @@ function UsuarioIndividual({ usuario }) {
                     <div className='col-sm-6 offset-3'  data-aos= "flip-right">
 
                         <ul className='list-group'>
-                            <li className='list-group-item'>{usuario.idUsuario}</li>
-                            <li className='list-group-item'>{usuario.nombre}</li>
-                            <li className='list-group-item'>{usuario.email}</li>
-                            <li className='list-group-item'>{usuario.telefono}</li>
+                            <li className='list-group-item'>{empleado.idEmpleado}</li>
+                            <li className='list-group-item'>{empleado.nombre}</li>
+                            <li className='list-group-item'>{empleado.correo}</li>
+                            <li className='list-group-item'>{empleado.telefono}</li>
                         </ul>
 
-                        <Link to={`/editarusuario/${usuario.idUsuario}`}><li className='btn btn-success'>Editar</li></Link>
+                        <Link to={`/editarempleado/${empleado.idEmpleado}`}><li className='btn btn-success'>Editar</li></Link>
                         &nbsp;
-                        <button className="btn btn-danger" onClick={()=>borrarusuario(usuario.idusuario)}>Borrar</button>
+                        <button className="btn btn-danger" onClick={()=>borrarempleado(empleado.idEmpleado)}>Borrar</button>
                         <hr className='mt-4'></hr>
 
                     </div>
@@ -54,4 +54,4 @@ function UsuarioIndividual({ usuario }) {
     )
 }
 
-export default UsuarioIndividual
+export default EmpleadoIndividual

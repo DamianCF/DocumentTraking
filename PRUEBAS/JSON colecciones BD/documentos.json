@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "6294f2658e6daf873415d28f"
+  },
+  "idDocumento": "628947da6453b0d49518f98e",
+  "detalles": "img",
+  "ubicacion": "https://img.freepik.com/vector-gratis/fondo-digital-azul-copia-espacio_23-2148821698.jpg?t=st=1653164058~exp=1653164658~hmac=9c0743628817554bd5f4369bf19c4c7ee8b6da1a960be587f75b6f733e7583ea&w=1060",
+  "estado": "A"
+},{
+  "_id": {
+    "$oid": "6296ec188f0033b290bdd68a"
+  },
+  "idDocumento": "7834647shjdbhjm",
+  "detalles": "jkhsfg",
+  "ubicacion": "svsaf",
+  "estado": "A",
+  "__v": 0
+}]

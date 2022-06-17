@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "628943b76453b0d49518f981"
+  },
+  "idEmpleado": "gsdg25tgw5egtvf",
+  "nombre": "ronald",
+  "pApellido": "blanco",
+  "sApellido": "navarro",
+  "cedula": 117580543,
+  "edad": 22,
+  "sexo": "M",
+  "desc_labor": " manejo de maquinaria",
+  "rol": "A",
+  "estado": "A",
+  "telefono": 3657546,
+  "correo": "ronald@gmail.com",
+  "clave": "hello"
+},{
+  "_id": {
+    "$oid": "62a11d2ad47d334a33ca1647"
+  },
+  "idEmpleado": "jbdhkag6352r2jh",
+  "nombre": "prueba",
+  "pApellido": "mora",
+  "sApellido": "falllas",
+  "cedula": 0,
+  "clave": "q",
+  "edad": 44,
+  "sexo": "M",
+  "desc_labor": "maquinista",
+  "rol": "A",
+  "telefono": 773732,
+  "correo": "maquinista@prueba.com",
+  "estado": "A",
+  "__v": 0
+}]

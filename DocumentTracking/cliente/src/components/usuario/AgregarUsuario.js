@@ -3,7 +3,7 @@ import uniquid from 'uniquid'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-function AgregarDepartamento(){
+function AgregarUsuario(){
 
     //Hooks 
     const[nombre,setNombre] = useState('')
@@ -11,20 +11,20 @@ function AgregarDepartamento(){
     const[telefono,setTelefono]= useState('')
 
 
-    function agregarDepartamento(){
-        var departamento = {
+    function agregarUsuario(){
+        var usuario = {
             nombre: nombre,
             email: email,
             telefono: telefono,
             idUsuario: uniquid()
         }
 
-        console.log(departamento)
+        console.log(usuario)
 
-        axios.post('/api/usuario/agregardepartamento', departamento)
+        axios.post('/api/usuario/agregarusuario', usuario)
         .then(res =>{
             //alert(res.data)
-            Swal.fire('Felicidades', 'El departamento se creo con exito')
+            Swal.fire('Felicidades', 'El usuario se creo con exito')
         })
         .then(err => {console.log(err)})
     }
@@ -34,7 +34,7 @@ function AgregarDepartamento(){
 
 
             <div className='row'>
-                    <h2 className='mt-4'> Crear nuevo departamento</h2>
+                    <h2 className='mt-4'> Crear nuevo usuario</h2>
             </div>
 
             <div className='row'>
@@ -55,7 +55,7 @@ function AgregarDepartamento(){
                         <input type="text" className='form-control' value = {telefono} onChange = {(e)=>{setTelefono(e.target.value )}}></input>
                     </div>
 
-                    <button onClick={agregarDepartamento} className='btn btn-success'>Guardar Departamento</button>
+                    <button onClick={agregarUsuario} className='btn btn-success'>Guardar Usuario</button>
 
                 </div>
             </div>
@@ -63,4 +63,4 @@ function AgregarDepartamento(){
     )
 }
 
-export default AgregarDepartamento
+export default AgregarUsuario

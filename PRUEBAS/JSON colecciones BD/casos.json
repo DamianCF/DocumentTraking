@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "62894c466453b0d49518f9ab"
+  },
+  "idCaso": "62894c526453b0d49518f9ac",
+  "idTramite": "62894c706453b0d49518f9ad",
+  "numCaso": "1234asdf",
+  "detalle": "safgda",
+  "estado": "A",
+  "fechaInicio": {
+    "$date": {
+      "$numberLong": "940377600000"
+    }
+  },
+  "fechaFinal": {
+    "$date": {
+      "$numberLong": "976579200000"
+    }
+  },
+  "controlFechasDepts": [
+    {
+      "idDepartamento": "628947176453b0d49518f988",
+      "fechaIni": {
+        "$date": {
+          "$numberLong": "1005436800000"
+        }
+      },
+      "fechaFin": {
+        "$date": {
+          "$numberLong": "1091923200000"
+        }
+      }
+    }
+  ],
+  "idEmpresa": "jkfasbhvjafbaj67325"
+}]
