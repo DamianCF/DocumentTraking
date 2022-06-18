@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "6289300f6453b0d49518f965"
+  },
+  "nombre": "aaa",
+  "indoleNegocio": "aaaa",
+  "cedulaJuridica": "aaa",
+  "estado": "A",
+  "gerencia": {
+    "idGerenteGeneral": "628943d56453b0d49518f982",
+    "gerentes": [
+      "628943d56453b0d49518f982"
+    ]
+  },
+  "sucursales": [
+    {
+      "nomSucursal": "aaa1",
+      "provincia": "srtr",
+      "canton": "df",
+      "distrito": "rtyg",
+      "direccion": "dfg"
+    }
+  ],
+  "correo": "agdfd@gmail.com",
+  "telefono": 325453
+}]
