@@ -3,10 +3,10 @@
     "$oid": "628943b76453b0d49518f981"
   },
   "idEmpleado": "gsdg25tgw5egtvf",
-  "nombre": "ronald",
-  "pApellido": "blanco",
-  "sApellido": "navarro",
-  "cedula": 117580543,
+  "nombre": "Damian",
+  "pApellido": "Cordero",
+  "sApellido": "Fallas",
+  "cedula": 12,
   "edad": 22,
   "sexo": "M",
   "desc_labor": " manejo de maquinaria",
@@ -14,7 +14,7 @@
   "estado": "A",
   "telefono": 3657546,
   "correo": "ronald@gmail.com",
-  "clave": "hello"
+  "clave": "12"
 },{
   "_id": {
     "$oid": "62a11d2ad47d334a33ca1647"
