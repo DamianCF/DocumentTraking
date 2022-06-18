@@ -31,13 +31,14 @@ function AgregarDocumentos() {
 
         console.log(documento)
 
-        axios.post('/api/usuario/AgregarDocumentos', documento)
+        axios.post('/api/usuario/agregardocumento', documento)
             .then(res => {
                 //alert(res.data)
                 Swal.fire('Felicidades', 'El documento se creo con exito')
             })
             .then(err => { console.log(err) })
     }
+    
 
     return (
 
@@ -75,7 +76,7 @@ function AgregarDocumentos() {
             <input type="text" className='form-control' value = {tramites} onChange = {(e)=>{setTramites(e.target.value )}}></input>
         </div> */}
 
-                        <button onClick={AgregarDocumentos} className='btn btn-success'>Guardar documento</button>
+                        <button onClick={agregarDocumentos} className='btn btn-success'>Guardar documento</button>
 
                     </div>
                 </div>

@@ -25,6 +25,7 @@ import AgregarCaso from './components/caso/AgregarCaso';
 import EditarCaso from './components/caso/EditarCaso';
 //Login
 import Login from './components/Login';
+import AgregarDocumentos from './components/documento/AgregarDocumentos';
 
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
 
           {/*Documentos*/}
           <Route path='/documentos' element={<ListarDocumentos />} exact></Route>
-          <Route path='/documentos' element={<AgregarDocumento />} exact></Route>
+          <Route path='/agregardocumentos' element={<AgregarDocumentos />} exact></Route>
 
 
 

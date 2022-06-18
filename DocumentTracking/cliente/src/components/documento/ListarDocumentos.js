@@ -28,7 +28,7 @@ function guardarArchivo(e) {
                 <h1 class="Titulos">
                     DOCUMENTOS 
                 </h1>
-                <a className="nav-link" href="/agregarDocumentos">Agregar Documentos</a>
+                <a className="nav-link" href="/AgregarDocumentos">Agregar Documentos</a>
                 <hr/>
                 
           
