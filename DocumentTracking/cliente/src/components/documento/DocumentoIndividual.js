@@ -17,7 +17,7 @@ function DocumentoIndividual({ documento }) {
     //Funcion para borrar documento
     function borrardocumento(idDocumento){
 
-            axios.post('/api/usuario/borrardocumento', {idDocumento: iddocumento}).then(res =>{
+            axios.post('/api/usuario/borrardocumento', {idDocumento: idDocumento}).then(res =>{
                 console.log(res.data)
                 alert(res.data)
                 navegar(0)
@@ -25,8 +25,8 @@ function DocumentoIndividual({ documento }) {
                 console.log(err)
             })
     }
-
-
+  
+     
     return (
         <div>
             <div className='container'>
