@@ -41,6 +41,8 @@ function TramiteIndividual({ tramite }) {
 
                         <Link to={`/editartramite/${tramite.idTramite}`}><li className='btn btn-success'>Seleccionar</li></Link>
                         &nbsp;
+                        <button className="btn btn-warning" >Quitar</button>
+                        &nbsp;
                         <button className="btn btn-danger" onClick={()=>borrartramite(tramite.idTramite)}>Eliminar</button>
                         <hr className='mt-4'></hr>
 
