@@ -68,7 +68,7 @@ router.get('/obtenerempleados', (req, res) =>{
 
 // obtener data de empleado
 router.post('/obtenerdataempleado', (req, res) =>{
-    ModeloEmpleado.find({idEmpleado:req.body.idEmpleado, clave: req.body.clave , estado: req.body.estado}, function (docs , err){
+    ModeloEmpleado.find({idEmpleado:req.body.idEmpleado}, function (docs , err){
         if(!err){
             res.send(docs)
         }else{

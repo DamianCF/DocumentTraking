@@ -30,7 +30,7 @@ function Tramitesdepartamento() {
     const [estado, setEstado] = useState('A')
     const [tramitesDEP, setTramitesDEP] = useState([]);
 
-    //FALTA QUE FILTRE POR DEPARTAMENTO EN ESPECIFICO
+    
     useEffect(() => {
 
         axios.post('/api/usuario/obtenerdatadepartamento', { idDepartamento: params.idDepartamento }).then(res => {
