@@ -15,6 +15,7 @@ function EditarDepartamento() {
     const [descripcion, setDescripcion] = useState('')
     const [correo, setCorreo] = useState('')
     const [telefono, setTelefono] = useState('')
+    const [estado, setEstado] = useState('A')
 
     // para volver atras a pagina principal
     const navegar = useNavigate()
@@ -22,7 +23,7 @@ function EditarDepartamento() {
 
     useEffect(() => {
         axios.post('/api/usuario/obtenerdatadepartamento', { idDepartamento: params.idDepartamento }).then(res => {
-            console.log(res.data[0])
+            //console.log(res.data[0])
             const datadepartamento = res.data[0]
             setNombre(datadepartamento.nombre)
             setDescripcion(datadepartamento.descripcion)
@@ -37,34 +38,53 @@ function EditarDepartamento() {
     function editarDepartamento() {
         // Nuevo objeto para actualizar usuario
         const actualizardepartamento = {
+            idDepartamento: params.idDepartamento,
             nombre: nombre,
             descripcion: descripcion,
             correo: correo,
             telefono: telefono,
-            idDepartamento: params.idDepartamento
+            estado : estado
+
+
+
+
+            // idDepartamento: req.body.idDepartamento,
+            //   idJefe: req.body.idJefe,
+            //   nombre: req.body.nombre,
+            //   descripcion: req.body.descripcion,
+            //   estado: req.body.estado,
+            //   telefono: req.body.telefono,
+            //   correo: req.body.correo,
+            //   empleados: req.body.empleados,
+            //   tramites: req.body.tramites
         }
 
         // hacer peticion usando axios
-        axios.post('/api/usuario/actualizadepartamento', actualizardepartamento)
+        axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
             .then(res => {
-                console.log(res.data)
+                // console.log("exito")
+                // console.log(res.data)
                 // alert(res.data)
                 // navegar('/')
-                // Swal.fire({
-                //     position: 'top-end',
-                //     icon: 'success',
-                //     title: 'Your work has been saved',
-                //     showConfirmButton: false,
-                //     timer: 1500
-                //   })
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Departamento Editado',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             })
             .then(err => { 
-                // Swal.fire({
-                //     icon: 'error',
-                //     title: 'Oops...',
-                //     text: 'No se ha podido actualizar el departamento!',
-                //   })
-                console.log(err)
+
+                if(err){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No se ha podido actualizar el departamento!',
+                      })
+                }
+                // console.log("fallo")
+                // console.log(err)
              })
     }
 

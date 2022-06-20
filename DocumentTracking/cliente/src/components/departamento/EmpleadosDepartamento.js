@@ -78,7 +78,7 @@ function EmpleadosDepartamento() {
         //console.log(empleado.idEmpleado);
         // console.log(empleadosDEP);
         
-        if (undefined == empleadosDEP.find(element => element == empleado.idEmpleado)) {
+        if (undefined != empleadosDEP.find(element => element == empleado.idEmpleado)) {
             return <></>
         }
         else {
