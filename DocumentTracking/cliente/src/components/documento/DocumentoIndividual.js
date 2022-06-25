@@ -42,7 +42,7 @@ function DocumentoIndividual({ documento }) {
                             <li className='list-group-item'>Estadi: {documento.estado}</li>
                         </ul>
 
-                        <Link to={`/editardocumento/${documento.idDocumento}`}><li className='btn btn-success'>Seleccionar</li></Link>
+                        <Link to={`/editarDocumento/${documento.idDocumento}`}><li className='btn btn-success'>Editar</li></Link>
                         &nbsp;
                         <button className="btn btn-danger" onClick={()=>borrardocumento(documento.idDocumento)}>Eliminar</button>
                         <hr className='mt-4'></hr>
