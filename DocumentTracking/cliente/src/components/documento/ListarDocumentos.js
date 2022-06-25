@@ -31,8 +31,8 @@ function ListarDocumentos() {
                     Documento
                 </h1>
              
-                 <a class="nav-link" href="/agregardocumentos">Agregar Documentos</a> 
-               {listadocumentos}
+                <a class="btn-insertar" href="/agregardocumentos">Agregar Documentos</a> 
+                    {listadocumentos}
                 <hr/>
                
             </div>

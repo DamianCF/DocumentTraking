@@ -46,8 +46,55 @@
 }
 .Titulos{
   margin-top:70px;
+  box-shadow: 0px 4px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:17px;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:24px;
+	padding:18px 76px;
+  margin-left: 45px;
+  margin-right: 45px;
+  margin-bottom: 40px;
+	text-decoration:none;
 }
 
 .Fondo{
   background-image: url("https://img.freepik.com/vector-gratis/fondo-onda-blanca-suave_52683-55288.jpg?w=2000");
+  background-size: cover;
 }
+
+.Calendario{
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 10px;
+
+}
+
+/*Boton para insersiones*/
+.btn-insertar {
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:33px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:10px 73px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.btn-insertar:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
+}
+.btn-insertar:active {
+	position:relative;
+	top:1px;
+}
+

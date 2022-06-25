@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import AOS from 'aos'
+import Swal from 'sweetalert2'
 import 'aos/dist/aos.css'
 
 
@@ -14,16 +15,29 @@ function CasoIndividual({ caso }) {
         AOS.init()
     },[])
 
-    //Funcion para borrar departamento
+    //Funcion para borrar caso
     function borrarCaso(iddeCaso){
-
-            axios.post('/api/usuario/borrarCaso', {idCaso: iddeCaso}).then(res =>{
-                console.log(res.data)
-                alert(res.data)
-                navegar(0)
-            }).catch(err =>{
-                console.log(err)
-            })
+        Swal.fire({
+            title: 'Estás seguro?',
+            text: "Se borrará permanentemente!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Eliminar!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire('Eliminado!','El caso ha sido eliminado.','success')
+                axios.post('/api/usuario/borrarCaso', {idCaso: iddeCaso}).then(res =>{
+                    console.log(res.data)
+                    navegar(0)
+                }).catch(err =>{
+                    Swal.fire('ERROR!','Error al eliminar el caso','error')
+                    console.log(err)
+                    navegar(0)
+                })
+            }
+        })  
     }
 
 
@@ -38,6 +52,8 @@ function CasoIndividual({ caso }) {
                             <li className='list-group-item' hidden =  "true" >{caso.idCaso}</li>
                             <li className='list-group-item'>Numero de caso: {caso.numCaso}</li>
                             <li className='list-group-item'>Detalle: {caso.detalle}</li>
+                            <li className='list-group-item'>Fecha de inicio: {caso.fechaIni}</li>
+                            <li className='list-group-item'>Fecha de finalización: {caso.fechaFin}</li>
                         </ul>
 
                         <Link to={`/editarCaso/${caso.idCaso}`}><li className='btn btn-success'>Editar</li></Link>

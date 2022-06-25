@@ -38,7 +38,7 @@ function Listardepartamentos() {
                 <h1 className="Titulos">
                     Departamentos
                 </h1>
-                <a className="nav-link" href="/agregardepartamento">Agregar Departamento</a>
+                <a className="btn-insertar" href="/agregardepartamento">Agregar Departamento</a>
                 <hr/>
                 {listadepartamentos}
             </div>

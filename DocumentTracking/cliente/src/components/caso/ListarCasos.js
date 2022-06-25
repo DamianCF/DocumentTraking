@@ -28,10 +28,10 @@ function ListarCasos() {
         <div >
             <NavBar/> 
             <div >
-                <h1 class="Titulos"> 
+                <h1 className="Titulos"> 
                     Casos
                 </h1>
-                <a class="nav-link" href="/agregarCaso">Agregar Caso</a>
+                <a class="btn-insertar" href="/agregarCaso">Agregar Caso</a>
                 <hr/>
                 {listadecasos}
             </div>
