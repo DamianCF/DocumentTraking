@@ -17,6 +17,8 @@ import AgregarTramite from './components/tramite/AgregarTramite';
 //Documentos
 import ListarDocumentos from './components/documento/ListarDocumentos';
 import ListarEmpleados from './components/empleado/ListarEmpleados';
+import AgregarDocumento from './components/documento/AgregarDocumentos'; 
+import AgregarDocumentos from './components/documento/AgregarDocumentos';
 
 //Casos
 import ListarCasos from './components/caso/ListarCasos';
@@ -24,6 +26,7 @@ import AgregarCaso from './components/caso/AgregarCaso';
 import EditarCaso from './components/caso/EditarCaso';
 //Login
 import Login from './components/Login';
+
 
 
 function App() {
@@ -47,9 +50,13 @@ function App() {
 
           {/*Documentos*/}
           <Route path='/documentos' element={<ListarDocumentos />} exact></Route>
+          <Route path='/agregardocumentos' element={<AgregarDocumentos />} exact></Route>
+
+
 
           {/*Empleados*/}
           <Route path='/empleados' element={<ListarEmpleados />} exact></Route>
+
 
           {/*Casos*/}
           <Route path='/casos' element={<ListarCasos />} exact></Route>
