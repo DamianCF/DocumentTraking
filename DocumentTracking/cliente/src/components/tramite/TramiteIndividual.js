@@ -5,7 +5,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 
-function TramiteIndividual({ tramite }) {
+function TramiteIndividual({ tramite , mostrarQuitar, idDepartamento}) {
 
     const navegar = useNavigate()
 
@@ -27,6 +27,15 @@ function TramiteIndividual({ tramite }) {
     }
 
 
+    function quitartramite(idTramite){
+        console.log(idDepartamento)
+        console.log(idTramite)
+
+        /// buscar dep -> cargarlo junto con sus tramites ->
+        //buscar en los tramites y eliminar el tramite que coincide
+        // actualizar departamento con sus tramites
+    }
+
     return (
         <div>
             <div className='container'>
@@ -41,7 +50,7 @@ function TramiteIndividual({ tramite }) {
 
                         <Link to={`/editartramite/${tramite.idTramite}`}><li className='btn btn-success'>Seleccionar</li></Link>
                         &nbsp;
-                        <button className="btn btn-warning" >Quitar</button>
+                        <button hidden = {mostrarQuitar} className="btn btn-warning" onClick={()=>quitartramite(tramite.idTramite)}>Quitar</button>
                         &nbsp;
                         <button className="btn btn-danger" onClick={()=>borrartramite(tramite.idTramite)}>Eliminar</button>
                         <hr className='mt-4'></hr>
