@@ -32,7 +32,38 @@ function TramiteIndividual({ tramite , mostrarQuitar, idDepartamento}) {
         console.log(idTramite)
 
         /// buscar dep -> cargarlo junto con sus tramites ->
-        //buscar en los tramites y eliminar el tramite que coincide
+        axios.post('/api/usuario/obtenerdatadepartamento', { idDepartamento}).then(res => {
+            //console.log(res.data[0])
+            const datadepartamento = res.data[0]
+
+            var tramites1 = datadepartamento.tramites;
+                // eliminar el tramite del departamento
+            const filteredLibraries = tramites1.filter((item) => item !== idTramite)
+            //console.log(filteredLibraries)
+
+
+                    // Nuevo objeto para actualizar usuario
+        const actualizardepartamento = {
+            idDepartamento: idDepartamento,
+            estado: 'A',
+            tramites: filteredLibraries
+        }
+
+        // hacer peticion usando axios
+        axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
+            .then(res => {
+                console.log(res.data)
+                // actualizar tramites en pantalla
+                navegar(0)
+
+            })
+            .then(err => {
+                if (err) {
+                    console.log(err)
+                }
+            })
+        })
+
         // actualizar departamento con sus tramites
     }
 
