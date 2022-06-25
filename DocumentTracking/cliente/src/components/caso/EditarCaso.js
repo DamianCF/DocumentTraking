@@ -65,10 +65,11 @@ function EditarCaso() {
                 <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="#">Infomacion Caso</a>
                 </li>
-                {/*
+                
                 <li className="nav-item">
-                    <a className="nav-link" href={`/editartramitesdepartamento/${idDEP}`}>Tramites</a>
+                    <a className="nav-link" href={`/editartramitesdepartamento/${idCASO}`}>Control de fechas</a>
                 </li>
+                {/*
                 <li className="nav-item">
                     <a className="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
                 </li>
