@@ -1,28 +1,41 @@
-import React from 'react'
 import NavBar from '../NavBar';
-
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import DocumentoIndividual from './DocumentoIndividual';
 
 function ListarDocumentos() {
-    return (
 
-        <div>
-            <NavBar/>
+    const[dataDocumentos,setdataDocumentos] = useState([])
 
+    useEffect( () => {
+            axios.get('api/usuario/obtenerdocumentos').then(res => {
+                console.log(res.data)
+                setdataDocumentos(res.data)
+            }).catch( err =>{console.log(err)}
+            ) 
+    },[])
+
+    const listadocumentos = dataDocumentos.map(documento=>{
+        return(
             <div>
-                <h1 class="Titulos">
-                    Documentos
-                </h1>
+                <DocumentoIndividual documento={documento}/>
             </div>
+        )
+    })
 
-            {/* <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                    The current link item
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-                <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
-            </div> */}
+    return (
+        <div >
+            <NavBar/> 
+            <div >
+                <h1 class="Titulos"> 
+                    Documento
+                </h1>
+             
+                 <a class="nav-link" href="/agregardocumentos">Agregar Documentos</a> 
+               {listadocumentos}
+                <hr/>
+               
+            </div>
         </div>
 
     )
