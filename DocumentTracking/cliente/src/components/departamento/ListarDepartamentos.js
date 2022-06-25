@@ -35,7 +35,7 @@ function Listardepartamentos() {
             <NavBar/>
 
             <div>
-                <h1 class="Titulos">
+                <h1 className="Titulos">
                     Departamentos
                 </h1>
                 <a className="nav-link" href="/agregardepartamento">Agregar Departamento</a>

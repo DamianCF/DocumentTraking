@@ -12,40 +12,49 @@ function Tramitesdepartamento() {
     var idDEP = '';
     const params = useParams()
     idDEP = params.idDepartamento;
-    //console.log("IDDEPARTMANENTO " +idDEP);
 
-    const [tramites, setTramites] = useState([]);
+    const navegar = useNavigate()
 
-    const [datatramites, setdatatramite] = useState([])
+    var cont = 0;
+    //Hooks
 
-    //FALTA QUE FILTRE POR DEPARTAMENTO EN ESPECIFICO
+    // estan cargados con objects
+    const [tramitesBD, setTramitesBD] = useState([]);
+    const [dataTramitesDep, setdataTramitesDep] = useState([])
+
+    //encargados de editar el departamento
+    const [nombre, setNombre] = useState('')
+    const [descripcion, setDescripcion] = useState('')
+    const [correo, setCorreo] = useState('')
+    const [telefono, setTelefono] = useState('')
+    const [estado, setEstado] = useState('A')
+    const [tramitesDEP, setTramitesDEP] = useState([]);
+
+    
     useEffect(() => {
 
         axios.post('/api/usuario/obtenerdatadepartamento', { idDepartamento: params.idDepartamento }).then(res => {
-            //console.log(res.data[0])
             const datadepartamento = res.data[0]
-            // console.log(datadepartamento.tramites);
-            // setTramites(datadepartamento.tramites)
+            setNombre(datadepartamento.nombre)
+            setDescripcion(datadepartamento.descripcion)
+            setCorreo(datadepartamento.correo)
+            setTelefono(datadepartamento.telefono)
+            setTramitesDEP(datadepartamento.tramites)
+            var tramites1 = datadepartamento.tramites;
 
-            var tramites = datadepartamento.tramites
-            //console.log(tramites)
-            tramites.map(tramite => {
-                // console.log(tramite)
-
-                axios.post('/api/usuario/obtenerdatatramite', { tramite }).then(res => {
-                    //console.log(res.data[0])
-                    setdatatramite(...datatramites, res.data);
+            if (cont < 1) {  // esto por que se duplica la lista puesto que el use efect se aplica 2 veces
+                cont++;
+                tramites1.map(tramite => {
+                    axios.post('/api/usuario/obtenerdatatramite', { tramite }).then(res => {
+                        setdataTramitesDep(dataTramitesDep => dataTramitesDep.concat(res.data[0]));
+                    })
                 })
-
-            })
-
+            }
         })
-
-
 
         axios.get('/api/usuario/obtenertramites').then(res => {
             //console.log(res.data)
-            setTramites(res.data)
+            setTramitesBD(res.data)
         }).catch(err => { console.log(err) }
         ) // min 1:39:38
 
@@ -53,7 +62,7 @@ function Tramitesdepartamento() {
 
 
     //mapear listatramitesdep en objeto usuario
-    const listatramitesdep = datatramites.map(tramite => {
+    const listatramitesdep = dataTramitesDep.map(tramite => {
         return (
             <div>
                 <TramiteIndividual tramite={tramite} />
@@ -61,29 +70,55 @@ function Tramitesdepartamento() {
         )
     })
 
-    //mapear listatramitesdep en objeto usuario
-    const listatramites = tramites.map(tramite => {
 
-    // if(datatramites.find(tramite)){
-    //         console.log("hola")
-    //          }
+    const listatramites = tramitesBD.map(tramite => {
 
-    // console.log(datatramites);
-    return (
-        
-        <option value={tramite.idTramite}>{tramite.descripcion}</option>
+        if (undefined != tramitesDEP.find(element => element == tramite.idTramite)) {
+            //console.log(tramite.descripcion);
+            return <></>
+        }
+        else {
 
-        )
+            return (
+                <option value={tramite.idTramite}>{tramite.descripcion}</option>
+            )
+        }
     })
- 
 
-    const agregarTramiteDep = (() => {
 
-        // console.log(document.getElementById("select").value)
-         var tramiteSelect = document.getElementById("select").value;
-         console.log(tramiteSelect)
+    function editarDepartamento() {
 
-    });
+
+        //console.log(document.getElementById("select").value)
+        // setTramitesDEP( tramitesDEP => tramitesDEP.concat( document.getElementById("select").value) )
+        tramitesDEP.push(document.getElementById("select").value)
+        console.log(tramitesDEP)
+
+        // Nuevo objeto para actualizar usuario
+        const actualizardepartamento = {
+            idDepartamento: idDEP,
+            nombre: nombre,
+            descripcion: descripcion,
+            correo: correo,
+            telefono: telefono,
+            estado: estado,
+            tramites: tramitesDEP
+        }
+
+        // hacer peticion usando axios
+        axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
+            .then(res => {
+                console.log(res.data)
+                // actualizar tramites en pantalla
+                navegar(0)
+
+            })
+            .then(err => {
+                if (err) {
+                    console.log(err)
+                }
+            })
+    }
 
 
     return (
@@ -91,36 +126,33 @@ function Tramitesdepartamento() {
         <div>
 
             <NavBar />
-
+            <br />
+            <br />
+            <br />
             <h3> Tramites de Departamento</h3>
 
             <div >
+                <br />
                 <select id="select" className="form-select" aria-label="Default select example" >
                     {listatramites}
                 </select>
                 <br />
-                <button className="btn btn-success" onClick={agregarTramiteDep}>Agregar</button>
+                <button className="btn btn-success" onClick={editarDepartamento}>Agregar Tramite Existente</button>
                 <br />
-
+                <a className="nav-link" href="/agregartramite">Crear Tramite</a>
             </div>
-
 
             <ul className="nav nav-tabs">
                 <li className="nav-item">
-                    {/* <a className="nav-link"  href="#">Informacion Departamento</a> */}
-
                     <a className="nav-link" href={`/editardepartamento/${idDEP}`}>Informacion Departamento</a>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="#">Tramites</a>
                 </li>
                 <li className="nav-item">
-                    {/* <a className="nav-link" href ="#">Empleados</a> */}
-
                     <a className="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
                 </li>
             </ul>
-
 
             <div>
                 {listatramitesdep}

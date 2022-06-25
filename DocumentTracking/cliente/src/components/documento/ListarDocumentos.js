@@ -44,3 +44,5 @@ function ListarDocumentos() {
 
 
 export default ListarDocumentos
+
+export default ListarDocumentos

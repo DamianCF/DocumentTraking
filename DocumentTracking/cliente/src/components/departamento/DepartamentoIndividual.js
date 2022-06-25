@@ -35,7 +35,7 @@ function DepartamentoIndividual({ departamento }) {
                     <div className='col-sm-6 offset-3'  data-aos= "flip-right">
 
                         <ul className='list-group'>
-                            <li className='list-group-item' hidden =  "true" >{departamento.idDepartamento}</li>
+                            <li className='list-group-item' hidden =  {true} >{departamento.idDepartamento}</li>
                             <li className='list-group-item'>Departamento: {departamento.nombre}</li>
                             <li className='list-group-item'>Descripcion: {departamento.descripcion}</li>
                             <li className='list-group-item'>Correo: {departamento.correo} / Telefono: {departamento.telefono}</li>

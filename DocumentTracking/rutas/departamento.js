@@ -7,9 +7,8 @@ const eschema  = mongoose.Schema
 
 const eschemadepartamento = new eschema({
     idDepartamento: {type: String ,required: true, unique: true},
-  //  idEmpresa: {type: String ,required: true},
     idJefe:{type: String },
-    nombre: {type: String ,required: true},
+    nombre: {type: String }, // ,required: true
     descripcion: String,
     estado: {type: String , enum: ['A', 'I'] , default : 'A' ,required: true},
     telefono: Number,
@@ -38,7 +37,7 @@ router.post('/agregardepartamento', (req, res) => {
     })
 
     console.log('Informacion del Body');
-    console.log(req.body)
+    //console.log(req.body)
 
     nuevousuario.save(function(err){
         if(!err){ 
@@ -88,7 +87,6 @@ router.post('/actualizardepartamento', (req, res) => {
 
     ModeloDepartamento.findOneAndUpdate({idDepartamento:req.body.idDepartamento},{
         idDepartamento: req.body.idDepartamento,
-      //  idEmpresa: req.body.idEmpresa,
         idJefe: req.body.idJefe,
         nombre: req.body.nombre,
         descripcion: req.body.descripcion,

@@ -35,13 +35,16 @@ function EmpleadoIndividual({ empleado }) {
                     <div className='col-sm-6 offset-3'  data-aos= "flip-right">
 
                         <ul className='list-group'>
-                            <li className='list-group-item'>{empleado.idEmpleado}</li>
-                            <li className='list-group-item'>{empleado.nombre}</li>
-                            <li className='list-group-item'>{empleado.correo}</li>
-                            <li className='list-group-item'>{empleado.telefono}</li>
+                            <li className='list-group-item' hidden ={true}>{empleado.idEmpleado}</li>
+                            <li className='list-group-item'>Nombre: {empleado.nombre}</li>
+                            <li className='list-group-item'>Cedula: {empleado.cedula}</li>
+                            <li className='list-group-item'>Correo: {empleado.correo}</li>
+                            <li className='list-group-item'>telefono:{empleado.telefono}</li>
                         </ul>
 
                         <Link to={`/editarempleado/${empleado.idEmpleado}`}><li className='btn btn-success'>Editar</li></Link>
+                        &nbsp;
+                        <button className="btn btn-warning" >Quitar</button>
                         &nbsp;
                         <button className="btn btn-danger" onClick={()=>borrarempleado(empleado.idEmpleado)}>Borrar</button>
                         <hr className='mt-4'></hr>
