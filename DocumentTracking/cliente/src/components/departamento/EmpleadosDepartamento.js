@@ -152,7 +152,7 @@ function EmpleadosDepartamento() {
                 </li>
                 <li className="nav-item">
                     {/* <a className="nav-link" href="/">Empleados</a> */}
-                    <a className="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
+                    <a className="nav-link" href={`/editartramitesdepartamento/${idDEP}`}>Tramites</a>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="#">Empleados</a>
