@@ -129,7 +129,7 @@ function Tramitesdepartamento() {
             <br />
             <br />
             <br />
-            <h3> Tramites de Departamento</h3>
+            <h3 className='Titulos'> Tramites de Departamento</h3>
 
             <div >
                 <br />
@@ -139,17 +139,17 @@ function Tramitesdepartamento() {
                 <br />
                 <button className="btn btn-success" onClick={editarDepartamento}>Agregar Tramite Existente</button>
                 <br />
-                <a className="nav-link" href="/agregartramite">Crear Tramite</a>
+                <a className="btn-Insertar" href="/agregartramite">Crear Tramite</a>
             </div>
 
             <ul className="nav nav-tabs">
-                <li className="nav-item">
+                <li className="tabs">
                     <a className="nav-link" href={`/editardepartamento/${idDEP}`}>Informacion Departamento</a>
                 </li>
-                <li className="nav-item">
+                <li className="tabs">
                     <a className="nav-link active" aria-current="page" href="#">Tramites</a>
                 </li>
-                <li className="nav-item">
+                <li className="tabs">
                     <a className="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
                 </li>
             </ul>

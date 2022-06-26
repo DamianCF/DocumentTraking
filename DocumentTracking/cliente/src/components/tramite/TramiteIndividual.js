@@ -35,8 +35,8 @@ function TramiteIndividual({ tramite }) {
                     <div className='col-sm-6 offset-3'  data-aos= "flip-right">
 
                         <ul className='list-group'>
-                            <li className='list-group-item'  hidden = {true}>{tramite.idTramite}</li>
-                            <li className='list-group-item'>{tramite.descripcion}</li>
+                            <li className='listar'  hidden = {true}>{tramite.idTramite}</li>
+                            <li className='listar'>{tramite.descripcion}</li>
                         </ul>
 
                         <Link to={`/editartramite/${tramite.idTramite}`}><li className='btn btn-success'>Seleccionar</li></Link>

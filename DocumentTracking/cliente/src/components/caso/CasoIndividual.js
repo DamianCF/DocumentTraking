@@ -49,11 +49,11 @@ function CasoIndividual({ caso }) {
                     <div className='col-sm-6 offset-3'  data-aos= "flip-right">
 
                         <ul className='list-group'>
-                            <li className='list-group-item' hidden =  "true" >{caso.idCaso}</li>
-                            <li className='list-group-item'>Numero de caso: {caso.numCaso}</li>
-                            <li className='list-group-item'>Detalle: {caso.detalle}</li>
-                            <li className='list-group-item'>Fecha de inicio: {caso.fechaIni}</li>
-                            <li className='list-group-item'>Fecha de finalización: {caso.fechaFin}</li>
+                            <li className='listar' hidden =  "true" >{caso.idCaso}</li>
+                            <li className='listar'>Numero de caso: {caso.numCaso}</li>
+                            <li className='listar'>Detalle: {caso.detalle}</li>
+                            <li className='listar'>Fecha de inicio: {caso.fechaIni}</li>
+                            <li className='listar'>Fecha de finalización: {caso.fechaFin}</li>
                         </ul>
 
                         <Link to={`/editarCaso/${caso.idCaso}`}><li className='btn btn-success'>Editar</li></Link>

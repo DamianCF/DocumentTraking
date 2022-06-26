@@ -46,23 +46,22 @@
 }
 .Titulos{
   margin-top:70px;
-  box-shadow: 0px 4px 0px 2px #9fb4f2;
-	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
-	background-color:#7892c2;
-	border-radius:17px;
-	cursor:pointer;
+  box-shadow: 0px 5px 24px 3px #276873;
+  background: linear-gradient(99deg, #5B5EE4 0%, #254350 100%);
+	border-radius:19px;
 	color:#ffffff;
-	font-family:Arial;
-	font-size:24px;
+	font-family:Verdana;
+	font-size:35px;
 	padding:18px 76px;
   margin-left: 45px;
   margin-right: 45px;
   margin-bottom: 40px;
-	text-decoration:none;
+  text-shadow:0px -3px 7px #3d768a;
+  
 }
 
 .Fondo{
-  background-image: url("https://img.freepik.com/vector-gratis/fondo-onda-blanca-suave_52683-55288.jpg?w=2000");
+  background-image: url("https://images.vexels.com/media/users/3/100829/raw/55f92f6ebaf9a33bace5a19e2a09f4d4-grafico-de-fondo-azul-vector-abstracto.jpg?w=1800&fmt=webp");
   background-size: cover;
 }
 
@@ -75,8 +74,8 @@
 
 /*Boton para insersiones*/
 .btn-insertar {
-	box-shadow: 0px 10px 14px -7px #276873;
-	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	box-shadow: 0px 10px 14px -7px #0f3d45;
+	background:linear-gradient(to bottom, #265464 5%, #408c99 100%);
 	background-color:#599bb3;
 	border-radius:33px;
 	display:inline-block;
@@ -89,12 +88,58 @@
 	text-decoration:none;
 	text-shadow:0px 1px 0px #3d768a;
 }
+
 .btn-insertar:hover {
 	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
 	background-color:#408c99;
 }
+
 .btn-insertar:active {
 	position:relative;
 	top:1px;
 }
+
+.listar{
+  background-color:#e3e4e8;
+	border-radius:2px;
+	display:grid;
+	color:#0f0f0f;
+	font-family:Trebuchet MS;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+}
+
+.boxAgregar{
+  background-color:#e3e4e8;
+	border-radius:20px;
+	display:flex;
+	color:#0f0f0f;
+	font-family:Trebuchet MS;
+	font-size:18px;
+	font-weight:bold;
+	padding:13px 32px;
+  margin-top: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.tabs {
+	background-color:#ffffff;
+	border-radius:2px;
+	border:1px solid #29668f;
+  border-radius: 5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#171617;
+	font-family:Verdana;
+	font-size:14px;
+	font-weight:bold;
+}
+
+.tabs:active {
+	position:relative;
+	top:1px;
+}
+
 

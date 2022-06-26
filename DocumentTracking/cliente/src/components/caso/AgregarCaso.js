@@ -45,7 +45,7 @@ function AgregarCaso(){
                     <h2 className='mt-4'> Crear nuevo caso</h2>
             </div>
 
-            <div className='row'>
+            <div className='boxAgregar'>
                 <div className='col-sm-6 offset-3'>
 
                     <div className='mb-3'>
