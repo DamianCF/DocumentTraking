@@ -69,6 +69,17 @@ router.get('/obtenerCasos', (req, res) =>{
 } )
 
 // obtener data de caso 
+router.post('/obtenercaso', (req, res) =>{
+    ModeloCaso.find({idCaso:req.body.caso}, function (docs , err){
+        if(!err){
+            res.send(docs)
+        }else{
+            res.send(err)
+        }
+    })
+} )
+
+// obtener data de caso 
 router.post('/obtenerdataCaso', (req, res) =>{
     ModeloCaso.find({idCaso:req.body.idCaso}, function (docs , err){
         if(!err){

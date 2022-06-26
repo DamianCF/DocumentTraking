@@ -65,7 +65,7 @@ function Tramitesdepartamento() {
     const listatramitesdep = dataTramitesDep.map(tramite => {
         return (
             <div>
-                <TramiteIndividual tramite={tramite} />
+                <TramiteIndividual tramite={tramite}  idDepartamento = {params.idDepartamento}/>
             </div>
         )
     })

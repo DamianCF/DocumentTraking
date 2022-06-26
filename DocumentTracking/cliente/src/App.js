@@ -26,6 +26,9 @@ import AgregarCaso from './components/caso/AgregarCaso';
 import EditarCaso from './components/caso/EditarCaso';
 //Login
 import Login from './components/Login';
+import EditarTramite from './components/tramite/EditarTramite';
+import Casostramite from './components/tramite/CasosTramite';
+import DocumentosTramite from './components/tramite/DocumentosTramite';
 
 
 
@@ -65,6 +68,9 @@ function App() {
           
           {/*Tramites*/}
           <Route path='/agregartramite' element={<AgregarTramite/>} exact></Route>
+          <Route path='/editartramite/:idTramite' element={<EditarTramite />} exact></Route>
+          <Route path='/editarcasostramite/:idTramite' element={<Casostramite />} exact></Route>
+          <Route path='/editardocumentostramite/:idTramite' element={<DocumentosTramite />} exact></Route>
 
 
           {/* <Route path='/editarCaso' element={<EditarCaso />} exact></Route> */}

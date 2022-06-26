@@ -25,6 +25,7 @@ function Listardepartamentos() {
         return(
             <div>
                 <DepartamentoIndividual departamento={departamento}/>
+               {/* <h3>{departamento.nombre}</h3> */}
             </div>
         )
     })
@@ -33,7 +34,6 @@ function Listardepartamentos() {
 
         <div>
             <NavBar/>
-
             <div>
                 <h1 className="Titulos">
                     Departamentos
@@ -42,18 +42,7 @@ function Listardepartamentos() {
                 <hr/>
                 {listadepartamentos}
             </div>
-
-            {/* <div className="list-group">
-                <a href="#" className="list-group-item list-group-item-action active" aria-current="true">
-                    The current link item
-                </a>
-                <a href="#" className="list-group-item list-group-item-action">A second link item</a>
-                <a href="#" className="list-group-item list-group-item-action">A third link item</a>
-                <a href="#" className="list-group-item list-group-item-action">A fourth link item</a>
-                <a className="list-group-item list-group-item-action disabled">A disabled link item</a>
-            </div> */}
         </div>
-
     )
 }
 
