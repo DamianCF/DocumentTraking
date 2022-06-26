@@ -57,17 +57,17 @@ router.get('/obtenertramites', (req, res) =>{
     })
 } )
 
-// // obtener data de tramite
-// router.post('/obtenerdatatramite', (req, res) =>{
-//     console.log(req.body.idTramite);
-//     ModeloTramite.find({idTramite:req.body.idTramite}, function (docs , err){
-//         if(!err){
-//             res.send(docs)
-//         }else{
-//             res.send(err)
-//         }
-//     })
-// } )
+// obtener data de tramite
+router.post('/obtenertramite', (req, res) =>{
+    console.log(req.body.idTramite);
+    ModeloTramite.find({idTramite:req.body.idTramite}, function (docs , err){
+        if(!err){
+            res.send(docs)
+        }else{
+            res.send(err)
+        }
+    })
+} )
 
 // obtener data de tramite
 router.post('/obtenerdatatramite', (req, res) =>{

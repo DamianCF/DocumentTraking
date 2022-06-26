@@ -6,10 +6,10 @@ const { model } = require('../conexion')
 const eschema  = mongoose.Schema
 
 
-const eschemaBitacora = new eschema({
-    fechaIni: Date,
-    fechaFin: Date
-})
+//const eschemaBitacora = new eschema({
+//   fechaIni: Date,
+//   fechaFin: Date
+//})
 
 const eschemaControlFechasDepts = new eschema({
     idDepartamento: {type: String, required: true},
@@ -22,8 +22,9 @@ const eschemaCaso = new eschema({
     idTramite: String,
     numCaso: String,
     detalle: String,
+    fechaIni: String,
+    fechaFin: String,
     estado:{type: String, enum: ['A', 'F'] , default : 'A' , required: true },
-    bitacora: eschemaBitacora,
     ctrlFechas: [eschemaControlFechasDepts]
 })
 
@@ -43,7 +44,8 @@ router.post('/agregarCaso', (req, res) => {
         numCaso: req.body.numCaso,
         detalle: req.body.detalle,
         estado: req.body.estado,
-        bitacora: req.body.bitacora,
+        fechaIni: req.body.fechaIni,
+        fechaFin: req.body.fechaFin,
         ctrlFechas: req.body.ctrlFechas
     })
     nuevoCaso.save(function(err){
@@ -58,6 +60,17 @@ router.post('/agregarCaso', (req, res) => {
 // obtener todas los caso
 router.get('/obtenerCasos', (req, res) =>{
     ModeloCaso.find({}, function (docs , err){
+        if(!err){
+            res.send(docs)
+        }else{
+            res.send(err)
+        }
+    })
+} )
+
+// obtener data de caso 
+router.post('/obtenercaso', (req, res) =>{
+    ModeloCaso.find({idCaso:req.body.caso}, function (docs , err){
         if(!err){
             res.send(docs)
         }else{
@@ -86,7 +99,8 @@ router.post('/actualizarCaso', (req, res) => {
         numCaso: req.body.numCaso,
         detalle: req.body.detalle,
         estado: req.body.estado,
-        bitacora: req.body.bitacora,
+        fechaIni: req.body.fechaIni,
+        fechaFin: req.body.fechaFin,
         ctrlFechas: req.body.ctrlFechas
     }, (err)=>{
             if(!err){

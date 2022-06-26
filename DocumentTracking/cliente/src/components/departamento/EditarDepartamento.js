@@ -94,15 +94,15 @@ function EditarDepartamento() {
         <div>
             <NavBar />
 
-            <h3>Departamento</h3>
+            <h3 className='Titulos'>Departamento</h3>
             <ul className="nav nav-tabs">
-                <li className="nav-item">
+                <li className="tabs">
                     <a className="nav-link active" aria-current="page" href="#">Infomacion Departamento</a>
                 </li>
-                <li className="nav-item">
+                <li className="tabs">
                     <a className="nav-link" href={`/editartramitesdepartamento/${idDEP}`}>Tramites</a>
                 </li>
-                <li className="nav-item">
+                <li className="tabs">
                     <a className="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
                 </li>
             </ul>
@@ -110,7 +110,7 @@ function EditarDepartamento() {
 
             <div className='container'>
 
-                <div className='row'>
+                <div className='boxAgregar'>
                     <div className='col-sm-6 offset-3'>
 
                         <div className='mb-3'>

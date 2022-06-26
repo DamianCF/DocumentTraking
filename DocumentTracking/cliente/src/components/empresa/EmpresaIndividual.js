@@ -34,12 +34,12 @@ function EmpresaIndividual({ empresa }) {
 
                     <div className='col-sm-6 offset-3'  data-aos= "flip-right">
 
-                        <ul className='list-group'>
-                            <li className='list-group-item' hidden = "true">{empresa.idEmpresa}</li>
-                            <li className='list-group-item'>{ "Nombre: " + empresa.nombre}</li>
-                            <li className='list-group-item'>{"Negocio: "+ empresa.indoleNegocio}</li>
-                            <li className='list-group-item'>{"Correo: " + empresa.correo}</li>
-                            <li className='list-group-item'>{"Telefono: " + empresa.telefono}</li>
+                        <ul className='listar-group'>
+                            <li className='listar' hidden = "true">{empresa.idEmpresa}</li>
+                            <li className='listar'>{ "Nombre: " + empresa.nombre}</li>
+                            <li className='listar'>{"Negocio: "+ empresa.indoleNegocio}</li>
+                            <li className='listar'>{"Correo: " + empresa.correo}</li>
+                            <li className='listar'>{"Telefono: " + empresa.telefono}</li>
                         </ul>
 
                         <Link to={`/editarempresa/${empresa.idUsuario}`}><li className='btn btn-success'>Editar</li></Link>

@@ -20,7 +20,7 @@ function ListarTramites() {
     const listatramites = datatramites.map(tramite=>{
         return(
             <div>
-                <TramiteIndivual tramite={tramite}/>
+                <TramiteIndivual tramite={tramite}  mostrarQuitar = {"false"}  />
             </div>
         )
     })
@@ -32,10 +32,10 @@ function ListarTramites() {
             <NavBar/>
 
             <div>
-                <h1 class="Tramites">
+                <h1 class="Titulos">
                     Tramites
                 </h1>
-                <a className="nav-link" href="/agregartramite">Agregar Tamite</a>
+                <a className="btn-insertar" href="/agregartramite">Agregar Tamite</a>
                 <hr/>
                 {listatramites}
             </div>

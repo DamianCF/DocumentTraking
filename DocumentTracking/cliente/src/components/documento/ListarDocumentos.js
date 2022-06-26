@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import DocumentoIndividual from './DocumentoIndividual';
 
-
 function ListarDocumentos() {
 
     const[dataDocumentos,setdataDocumentos] = useState([])
@@ -32,8 +31,8 @@ function ListarDocumentos() {
                     Documento
                 </h1>
              
-                 <a class="nav-link" href="/agregardocumentos">Agregar Documentos</a> 
-               {listadocumentos}
+                <a class="btn-insertar" href="/agregardocumentos">Agregar Documentos</a> 
+                    {listadocumentos}
                 <hr/>
                
             </div>

@@ -35,11 +35,11 @@ function DocumentoIndividual({ documento }) {
                     <div className='col-sm-6 offset-3'  data-aos= "flip-right">
 
                         <ul className='list-group'>
-                            <li className='list-group-item' hidden =  "true" >{documento.idDocumento}</li>
-                            <li className='list-group-item'>Documento: {documento.nombre}</li>
-                            <li className='list-group-item'>Detalles: {documento.detalles}</li>
-                            <li className='list-group-item'>Ubicacion: {documento.ubicacion}</li>
-                            <li className='list-group-item'>Estadi: {documento.estado}</li>
+                            <li className='listar' hidden =  "true" >{documento.idDocumento}</li>
+                            <li className='listar'>Documento: {documento.nombre}</li>
+                            <li className='listar'>Detalles: {documento.detalles}</li>
+                            <li className='listar'>Ubicacion: {documento.ubicacion}</li>
+                            <li className='listar'>Estadi: {documento.estado}</li>
                         </ul>
 
                         <Link to={`/editarDocumento/${documento.idDocumento}`}><li className='btn btn-success'>Editar</li></Link>
