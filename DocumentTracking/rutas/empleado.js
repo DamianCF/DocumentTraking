@@ -18,6 +18,7 @@ const eschemaempleado = new eschema({
     rol: String,
     telefono: Number,
     correo: String,
+    clave: String,
     estado: {type: String , enum: ['A', 'I'] , default : 'A' ,required: true}
 })
 
@@ -40,7 +41,8 @@ router.post('/agregarempleado', (req, res) => {
         rol: req.body.rol,
         telefono: req .body.telefono,
         correo: req.body.correo,
-        estado: req.body.estado
+        estado: req.body.estado,
+        clave: req.body.clave
     })
 
     console.log('Informacion del Body Empleado');
@@ -107,7 +109,8 @@ router.post('/actualizarempleado', (req, res) => {
         rol: req.body.rol,
         telefono: req .body.telefono,
         correo: req.body.correo,
-        estado: req.body.estado
+        estado: req.body.estado,
+        clave: req.body.clave
 
     }, (err)=>{
             if(!err){

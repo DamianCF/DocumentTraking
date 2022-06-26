@@ -1,8 +1,26 @@
-import React from 'react'
 import NavBar from '../NavBar';
-
+import EmpleadoIndividual from './EmpleadoIndividual';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 function ListarEmpleados() {
+    const[dataEmpleado,setdataEmpleados] = useState([])
+
+    useEffect( () => {
+            axios.get('api/usuario/obtenerempleados').then(res => {
+                console.log(res.data)
+                setdataEmpleados(res.data)
+            }).catch( err =>{console.log(err)}
+            ) 
+    },[])
+
+    const ListadoEmpleados = dataEmpleado.map(empleado=>{
+        return(
+            <div>
+                <EmpleadoIndividual empleado={empleado}/>
+            </div>
+        )
+    })
     return (
 
         <div>
@@ -12,6 +30,8 @@ function ListarEmpleados() {
                 <h1 class="Titulos">
                     Empleados
                 </h1>
+                <a className="nav-link" href="/agregarempleados">Agregar empleados</a>
+                {ListadoEmpleados}
             </div>
 
             {/* <div class="list-group">
