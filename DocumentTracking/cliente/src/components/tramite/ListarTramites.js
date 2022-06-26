@@ -20,7 +20,7 @@ function ListarTramites() {
     const listatramites = datatramites.map(tramite=>{
         return(
             <div>
-                <TramiteIndivual tramite={tramite}/>
+                <TramiteIndivual tramite={tramite}  mostrarQuitar = {"false"}  />
             </div>
         )
     })
