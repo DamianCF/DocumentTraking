@@ -124,8 +124,13 @@ function Tramitesdepartamento() {
 
         <div>
             {/*<NavBar */}
-            <h3 className='Titulos'> Tramites de Departamento</h3>
-            <div>
+            
+            <div className='acomodar-resultados-2'>
+                {listatramitesdep}
+            </div>
+
+            <div className='sticky'>
+                <h3 className='Titulos'> Tramites de Departamento</h3>
                 <a className="btn-insertar" href="/agregartramite">Crear Tramite</a>
                 <br />
                 <hr></hr>
@@ -136,7 +141,10 @@ function Tramitesdepartamento() {
                 <br />
                 <button className="btn btn-success" onClick={editarDepartamento}>Agregar Tramite Existente</button>
                 <br /> 
+                <hr/>
             </div>
+
+            
 
             {/* <ul className="nav nav-tabs">
                 <li className="tabs">
@@ -177,11 +185,6 @@ function Tramitesdepartamento() {
                     </div>
                 </nav>
             </div>
-
-            <div className='acomodar'>
-                {listatramitesdep}
-            </div>
-            
         </div>
 
     )

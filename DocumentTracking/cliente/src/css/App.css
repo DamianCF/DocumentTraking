@@ -181,6 +181,10 @@
 .acomodar-resultados{
 	margin-top: 300px;
 }
+
+.acomodar-resultados-2{
+	margin-top: 420px;
+}
   
 .sticky{
 	position: fixed;
@@ -191,4 +195,29 @@
 	border-radius: 15px;
 }
 
+.tablaFila{
+	padding: 8px;
+    font-size: 15px;
+    border-width: 2px;
+    border-color: #CCCCCC;
+    background-color: #fffcfc;
+    color: #000000;
+    border-style: solid;
+    border-radius: 11px;
+    box-shadow: 4px 0px 18px rgba(66,66,66,.45);
+    text-shadow: 2px 0px 0px rgba(66,66,66,.0);
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+
+.boxEmpleado{
+	background-color:#e3e4e8;
+	border-radius:20px;
+	color:#0f0f0f;
+	font-family:Trebuchet MS;
+	font-size:18px;
+	font-weight:bold;
+	padding:50px 50px;
+  }
 

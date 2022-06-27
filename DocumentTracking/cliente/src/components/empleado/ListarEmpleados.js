@@ -33,8 +33,8 @@ function ListarEmpleados() {
                 <h1 class="Titulos">
                     Empleados
                 </h1>
-                <a className="nav-link" href="/agregarempleados">Agregar empleados</a>
-                
+                <a className="btn-insertar" href="/agregarempleados">Agregar empleados</a>
+                <hr/>
             </div>
 
             {/* <div class="list-group">

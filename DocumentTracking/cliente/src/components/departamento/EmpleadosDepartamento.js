@@ -129,8 +129,13 @@ function EmpleadosDepartamento() {
 
         <div>
             <NavBar />
-            <h3 className='Titulos'> Empleados de Departamento</h3>
-            <div>
+
+            <div className='acomodar-resultados-2'>
+                {listaempleadosdep}
+            </div>
+            
+            <div className='sticky'>
+                <h3 className='Titulos'> Empleados de Departamento</h3>
                 <a className="btn-insertar" href="/agregarempleado">Crear Empleado</a>
                 <br />
                 <hr></hr>
@@ -140,7 +145,7 @@ function EmpleadosDepartamento() {
                 </select>
                 <br />
                 <button className="btn btn-success" onClick={editarDepartamento}>Agregar Empleado Existente</button>
-                <br />
+                <br /> <hr/>
             </div>
             
 
@@ -183,12 +188,6 @@ function EmpleadosDepartamento() {
                     </div>
                 </nav>
             </div>
-
-
-            <div className='acomodar'>
-                {listaempleadosdep}
-            </div>
-
         </div>
 
     )
