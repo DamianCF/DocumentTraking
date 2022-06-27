@@ -4,8 +4,7 @@ import React, { useEffect, useState } from 'react'
 import DocumentoIndividual from '../documento/DocumentoIndividual'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
-
-
+import Swal from 'sweetalert2'
 
 function DocumentosTramite() {
 
@@ -86,7 +85,7 @@ function DocumentosTramite() {
 
     function editarTramite() {
 
-
+        if(document.getElementById("select").value != ""){
         //console.log(document.getElementById("select").value)
         // setDocumentosTRAM( documentosTRAM => documentosTRAM.concat( document.getElementById("select").value) )
         documentosTRAM.push(document.getElementById("select").value)
@@ -113,6 +112,16 @@ function DocumentosTramite() {
                     console.log(err)
                 }
             })
+        }else {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'No existen más documentos a agregar!',
+               
+              })
+        }
+    
+        
     }
 
 
