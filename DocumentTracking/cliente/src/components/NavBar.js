@@ -29,9 +29,11 @@ function NavBar() {
                                 <a className="nav-link" href="casos">Casos</a>
                             </li>
                         </ul>
+                       
                     </div>
                 </div>
             </nav>
+            <footer > Proyecto final ® JRD </footer>
         </div>
     )
 }

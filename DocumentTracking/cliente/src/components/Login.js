@@ -75,12 +75,12 @@ function Login() {
                         </form>
                         <hr className="mt-4" />
                         <div className="col-12">
-                            <p className="text-center mb-0">No estas registrado? <a href="#">Registrarse</a></p>
+                            <p className="text-center mb-0">No estas registrado? <a href='/agregarempleados' >Registrarse</a></p>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <footer > Proyecto final ® JRD </footer>
 
         </div>
 
