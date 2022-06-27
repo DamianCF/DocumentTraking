@@ -39,7 +39,7 @@ function Principal() {
                 {listaempresas}
             </div>
 
-
+            <footer > Proyecto final ® JRD </footer>
         </div>
     )
 }
