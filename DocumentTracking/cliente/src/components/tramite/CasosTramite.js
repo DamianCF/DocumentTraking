@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import CasoIndividual from '../caso/CasoIndividual'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
-
+import Swal from 'sweetalert2'
 
 
 function Casostramite() {
@@ -81,7 +81,7 @@ function Casostramite() {
 
     function editarTramite() {
 
-
+        if(document.getElementById("select").value != ""){
         //console.log(document.getElementById("select").value)
         // setCasosTRAM( casosTRAM => casosTRAM.concat( document.getElementById("select").value) )
         casosTRAM.push(document.getElementById("select").value)
@@ -108,6 +108,14 @@ function Casostramite() {
                     console.log(err)
                 }
             })
+        }else {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'No existen más empleados a agregar!',
+               
+              })
+        }
     }
 
 

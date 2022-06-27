@@ -3,6 +3,7 @@ import NavBar from '../NavBar';
 import React, { useEffect, useState } from 'react'
 import TramiteIndividual from '../tramite/TramiteIndividual'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
@@ -90,10 +91,13 @@ function Tramitesdepartamento() {
 
 
         //console.log(document.getElementById("select").value)
+      
         // setTramitesDEP( tramitesDEP => tramitesDEP.concat( document.getElementById("select").value) )
-        tramitesDEP.push(document.getElementById("select").value)
-        console.log(tramitesDEP)
+      if(document.getElementById("select").value != ""){
 
+        tramitesDEP.push(document.getElementById("select").value)
+       
+        console.log(tramitesDEP)
         // Nuevo objeto para actualizar usuario
         const actualizardepartamento = {
             idDepartamento: idDEP,
@@ -104,21 +108,33 @@ function Tramitesdepartamento() {
             estado: estado,
             tramites: tramitesDEP
         }
+         // hacer peticion usando axios
+         axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
+         .then(res => {
+             console.log(res.data)
+             // actualizar tramites en pantalla
+             navegar(0)
 
-        // hacer peticion usando axios
-        axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
-            .then(res => {
-                console.log(res.data)
-                // actualizar tramites en pantalla
-                navegar(0)
-
-            })
-            .then(err => {
-                if (err) {
-                    console.log(err)
-                }
-            })
+         })
+         .then(err => {
+             if (err) {
+                 console.log(err)
+             }
+         })
+ } else {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'No existen más tramites a agregar!',
+       
+      })
+ }
     }
+       
+
+      
+
+       
 
 
     return (

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import EmpleadoIndividual from '../empleado/EmpleadoIndividual'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
-
+import Swal from 'sweetalert2'
 
 
 function EmpleadosDepartamento() {
@@ -92,7 +92,7 @@ function EmpleadosDepartamento() {
 
     function editarDepartamento() {
 
-
+        if(document.getElementById("select").value != ""){
         //console.log(document.getElementById("select").value)
         // setEmpleadosDEP( empleadosDEP => empleadosDEP.concat( document.getElementById("select").value) )
         empleadosDEP.push(document.getElementById("select").value)
@@ -122,6 +122,16 @@ function EmpleadosDepartamento() {
                     console.log(err)
                 }
             })
+        }
+        else {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'No existen más empleados a agregar!',
+               
+              })
+         }
+
     }
 
 

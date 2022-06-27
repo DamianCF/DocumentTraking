@@ -79,9 +79,7 @@ function EditarDocumento() {
                 <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="#">Infomacion Departamento</a>
                 </li>
-                <li className="nav-item">
-                    <a className="nav-link" href={`/editardocumento/${idDEP}`}>Tramites</a>
-                </li>
+   
           
             </ul>
 
