@@ -5,7 +5,6 @@ import DocumentoIndividual from '../documento/DocumentoIndividual'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function DocumentosTramite() {
 

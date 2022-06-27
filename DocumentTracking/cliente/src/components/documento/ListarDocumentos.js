@@ -2,7 +2,7 @@ import NavBar from '../NavBar';
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import DocumentoIndividual from './DocumentoIndividual';
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function ListarDocumentos() {
     const [idDocumento, setIdDocumento] = useState([])
