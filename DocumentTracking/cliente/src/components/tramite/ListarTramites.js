@@ -9,7 +9,7 @@ function ListarTramites() {
 
     useEffect( () => {
             axios.get('api/usuario/obtenertramites').then(res => {
-                console.log(res.data)
+                //console.log(res.data)
                 setdatatramite(res.data)
             }).catch( err =>{console.log(err)}
             ) // min 1:39:38
