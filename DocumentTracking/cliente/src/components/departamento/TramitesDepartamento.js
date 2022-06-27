@@ -46,7 +46,9 @@ function Tramitesdepartamento() {
                 cont++;
                 tramites1.map(tramite => {
                     axios.post('/api/usuario/obtenerdatatramite', { tramite }).then(res => {
-                        setdataTramitesDep(dataTramitesDep => dataTramitesDep.concat(res.data[0]));
+                        if(res.data[0] != undefined){
+                            setdataTramitesDep(dataTramitesDep => dataTramitesDep.concat(res.data[0]));
+                        }
                     })
                 })
             }
