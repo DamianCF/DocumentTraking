@@ -6,6 +6,13 @@
   height: 40vmin;
   pointer-events: none;
 }
+.containerInput{
+	align-items:end;
+	right:0;
+	display:flex;
+	justify-content: flex-end;
+	padding-bottom: 25px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

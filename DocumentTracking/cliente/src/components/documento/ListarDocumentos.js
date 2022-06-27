@@ -2,39 +2,63 @@ import NavBar from '../NavBar';
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import DocumentoIndividual from './DocumentoIndividual';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function ListarDocumentos() {
+    const [idDocumento, setIdDocumento] = useState([])
+    const [dataDocumentos, setdataDocumentos] = useState([])
+    const [busqueda, setBusqueda] = useState("");
+   
 
-    const[dataDocumentos,setdataDocumentos] = useState([])
+    const handleChange=e=> {
+        setBusqueda(e.target.value);
+        filtrar(e.target.value);
 
-    useEffect( () => {
-            axios.get('api/usuario/obtenerdocumentos').then(res => {
-                console.log(res.data)
-                setdataDocumentos(res.data)
-            }).catch( err =>{console.log(err)}
-            ) 
-    },[])
+    }
+    const filtrar = (terminoBusqueda) => {
+        var ResultadosBusqueda = dataDocumentos.filter((elemento) => {
+            if (elemento.idDocumento.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())) {
+                return elemento;
 
-    const listadocumentos = dataDocumentos.map(documento=>{
-        return(
-            <div>
-                <DocumentoIndividual documento={documento}/>
+            }
+        });
+        setdataDocumentos(ResultadosBusqueda);
+    }
+
+    useEffect(() => {
+        axios.get('api/usuario/obtenerdocumentos').then(res => {
+          // console.log(res.data)
+            setIdDocumento(res.data)
+            setdataDocumentos(res.data)
+        }).catch(err => { console.log(err) }
+        )
+    }, [])
+
+    const listadocumentos = dataDocumentos.map(documento => {
+        return (
+            <div className='App'>
+                <DocumentoIndividual documento={documento} />
             </div>
         )
     })
 
     return (
         <div >
-            <NavBar/> 
-            <div >
-                <h1 class="Titulos"> 
+            
+            <NavBar />
+            <div>
+                <h1 class="Titulos">
                     Documento
                 </h1>
-             
-                <a class="btn-insertar" href="/agregardocumentos">Agregar Documentos</a> 
-                    {listadocumentos}
-                <hr/>
-               
+                <input className="form-control inputBuscar"
+                    value={busqueda}
+                    placeholder="Busqueda por Identificador"
+                    onChange={handleChange}
+                />
+                <a class="btn-insertar" href="/agregardocumentos">Agregar Documentos</a>
+                {listadocumentos}
+                <hr />
+
             </div>
         </div>
 

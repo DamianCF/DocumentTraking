@@ -95,7 +95,7 @@ function EditarDocumento() {
                         </div>
 
                         <div className='mb-3'>
-                            <label htmlFor='ubicacion' className='form-label'></label>
+                            <label htmlFor='ubicacion' className='form-label'>Ubicacion</label>
                             <input type="text" className='form-control' value={ubicacion} onChange={(e) => { setUbicacion(e.target.value) }}></input>
                         </div>
                         <div className='mb-3'>
