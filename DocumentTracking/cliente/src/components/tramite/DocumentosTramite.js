@@ -120,30 +120,30 @@ function DocumentosTramite() {
 
         <div>
             <NavBar />
-            <br />
-            <br />
-            <br />
-            <h3> Documentos de Tramite</h3>
+
+            <h3 className='Titulos'> Documentos de Tramite</h3>
             
             <div >
+                <a className="btn-insertar" href="/agregardocumentos">Crear Documento</a>
                 <br />
-                <select id="select" className="form-select" aria-label="Default select example" >
+                <hr />
+                <select id="select" className="btn-seleccion" aria-label="Default select example" >
                     {listadocumentos}
                 </select>
                 <br />
                 <button className="btn btn-success" onClick={editarTramite}>Agregar Documento Existente</button>
                 <br />
-                <a className="nav-link" href="/agregardocumentos">Crear Documento</a>
+                
             </div>
 
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     {/* <a className="nav-link" href="#">Informacion Tramite</a> */}
-                    <a className="nav-link" href={`/editartramite/${idTRAM}`}>Informacion Tramite</a>
+                    <a className="tabs" href={`/editartramite/${idTRAM}`}>Informacion Tramite</a>
                 </li>
                 <li className="nav-item">
                     {/* <a className="nav-link" href="/">Documentos</a> */}
-                    <a className="nav-link" href={`/editarcasostramite/${idTRAM}`}>Casos</a>
+                    <a className="tabs" href={`/editarcasostramite/${idTRAM}`}>Casos</a>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="#">Documentos</a>

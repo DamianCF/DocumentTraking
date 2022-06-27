@@ -65,18 +65,20 @@ function EditarTramite() {
     return (
         <div>
             <NavBar />
-            <h3>Tramite</h3>
+            <h3 className='Titulos'>Tramite</h3>
+
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="#">Infomacion Tramite</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href={`/editarcasostramite/${idDEP}`}>Casos</a>
+                    <a className="tabs" href={`/editarcasostramite/${idDEP}`}>Casos</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href={`/editardocumentostramite/${idDEP}`}>Documentos</a>
+                    <a className="tabs" href={`/editardocumentostramite/${idDEP}`}>Documentos</a>
                 </li>
             </ul>
+
             <div className='container'>
                 <div className='row'>
                     <div className='col-sm-6 offset-3'>

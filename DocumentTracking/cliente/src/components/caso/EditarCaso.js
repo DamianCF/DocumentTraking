@@ -67,13 +67,8 @@ function EditarCaso() {
                 </li>
                 
                 <li className="nav-item">
-                    <a className="nav-link" href={`/editartramitesdepartamento/${idCASO}`}>Control de fechas</a>
+                    <a className="tabs" href={''}>Control de fechas</a>
                 </li>
-                {/*
-                <li className="nav-item">
-                    <a className="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
-                </li>
-                */}
             </ul>
 
             <div className='container'>

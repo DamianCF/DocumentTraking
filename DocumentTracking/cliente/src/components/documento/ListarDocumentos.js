@@ -26,13 +26,13 @@ function ListarDocumentos() {
     return (
         <div >
             <NavBar/> 
-            <div >
-                <h1 class="Titulos"> 
-                    Documento
-                </h1>
-             
+
+            <div className='acomodar-resultados'>
+                {listadocumentos}
+            </div>
+            <div className='sticky'>
+                <h1 class="Titulos">Documentos</h1>
                 <a class="btn-insertar" href="/agregardocumentos">Agregar Documentos</a> 
-                    {listadocumentos}
                 <hr/>
                
             </div>

@@ -116,14 +116,12 @@ function Casostramite() {
         <div>
 
             <NavBar />
-            <br />
-            <br />
-            <br />
-            <h3> Casos de Tramite</h3>
+          
+            <h3 className='Titulos'> Casos de Tramite</h3>
 
             <div >
                 <br />
-                <select id="select" className="form-select" aria-label="Default select example" >
+                <select id="select" className="btn-seleccion" aria-label="Default select example" >
                     {listacasos}
                 </select>
                 <br />
@@ -134,13 +132,13 @@ function Casostramite() {
 
             <ul className="nav nav-tabs">
                 <li className="nav-item">
-                    <a className="nav-link" href={`/editartramite/${idTRAM}`}>Informacion Tramite</a>
+                    <a className="tabs" href={`/editartramite/${idTRAM}`}>Informacion Tramite</a>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="#">Casos</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href={`/editardocumentostramite/${idTRAM}`}>Documentos</a>
+                    <a className="tabs" href={`/editardocumentostramite/${idTRAM}`}>Documentos</a>
                 </li>
             </ul>
 
