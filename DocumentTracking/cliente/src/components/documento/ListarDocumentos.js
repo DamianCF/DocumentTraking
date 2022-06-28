@@ -37,7 +37,7 @@ function ListarDocumentos() {
     const listadocumentos = dataDocumentos.map(documento => {
         return (
             <div className='App'>
-                <DocumentoIndividual documento={documento} />
+                <DocumentoIndividual documento={documento}  mostrarQuitar = {"false"}/>
             </div>
         )
     })

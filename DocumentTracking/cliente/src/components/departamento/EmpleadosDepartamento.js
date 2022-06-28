@@ -48,7 +48,9 @@ function EmpleadosDepartamento() {
                 empleados1.map(empleado => {
                     let idEmpleado  = empleado;
                     axios.post('/api/usuario/obtenerdataempleado', { idEmpleado }).then(res => {
+                        if(res.data[0] != undefined){
                         setdataEmpleadosDep(dataEmpleadosDep => dataEmpleadosDep.concat(res.data[0]));
+                        }
                     })
                 })
             }
@@ -67,7 +69,7 @@ function EmpleadosDepartamento() {
     const listaempleadosdep = dataEmpleadosDep.map(empleado => {
         return (
             <div>
-                <EmpleadoIndividual empleado={empleado} />
+                <EmpleadoIndividual empleado={empleado} idDepartamento = {params.idDepartamento} />
             </div>
         )
     })
@@ -146,7 +148,7 @@ function EmpleadosDepartamento() {
             
             <div className='sticky'>
                 <h3 className='Titulos'> Empleados de Departamento</h3>
-                <a className="btn-insertar" href="/agregarempleado">Crear Empleado</a>
+                <a className="btn-insertar" href="/agregarempleados">Crear Empleado</a>
                 <br />
                 <hr></hr>
 

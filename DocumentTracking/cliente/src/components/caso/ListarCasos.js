@@ -19,7 +19,7 @@ function ListarCasos() {
     const listadecasos = dataDeCasos.map(caso=>{
         return(
             <div>
-                <CasoIndividual caso={caso}/>
+                <CasoIndividual caso={caso} mostrarQuitar = {"false"}/>
             </div>
         )
     })

@@ -41,7 +41,9 @@ function DocumentosTramite() {
                 documentos1.map(documento => {
                     let idDocumento  = documento;
                     axios.post('/api/usuario/obtenerdatadocumento', { idDocumento }).then(res => {
+                        if(res.data[0] != undefined){
                         setdataDocumentosTram(dataDocumentosTram => dataDocumentosTram.concat(res.data[0]));
+                        }
                     })
                 })
             }
@@ -60,7 +62,7 @@ function DocumentosTramite() {
     const listadocumentosdep = dataDocumentosTram.map(documento => {
         return (
             <div>
-                <DocumentoIndividual documento={documento} />
+                <DocumentoIndividual documento={documento} idTramite = {params.idTramite}/>
             </div>
         )
     })
