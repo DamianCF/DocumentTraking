@@ -69,7 +69,7 @@ router.get('/obtenerempresas', (req, res) =>{
 
 // obtener data de empresa
 router.post('/obtenerdataempresa', (req, res) =>{
-    ModeloEmpresa.find({idEmpresa:req.body.idEmpresa , estado: req.body.estado}, function (docs , err){
+    ModeloEmpresa.find({idEmpresa:req.body.idEmpresa}, function (docs , err){
         if(!err){
             res.send(docs)
         }else{

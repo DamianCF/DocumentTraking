@@ -42,7 +42,7 @@ function EmpresaIndividual({ empresa }) {
                             <li className='listar'>{"Telefono: " + empresa.telefono}</li>
                         </ul>
 
-                        <Link to={`/editarempresa/${empresa.idUsuario}`}><li className='btn btn-success'>Editar</li></Link>
+                        <Link to={`/editarempresa/${empresa.idEmpresa}`}><li className='btn btn-success'>Editar</li></Link>
                         &nbsp;
                         <button className="btn btn-danger" onClick={()=>borrarempresa(empresa.idempresa)}>Borrar</button>
                         <hr className='mt-4'></hr>

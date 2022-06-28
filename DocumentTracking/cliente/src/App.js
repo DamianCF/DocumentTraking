@@ -33,6 +33,7 @@ import Casostramite from './components/tramite/CasosTramite';
 import DocumentosTramite from './components/tramite/DocumentosTramite';
 import Agregarempleados from './components/empleado/AgregarEmpleado';
 import EditarEmpleado from './components/empleado/EditarEmpleado';
+import EditarEmpresa from './components/empresa/EditarEmpresa';
 
 
 
@@ -44,6 +45,7 @@ function App() {
       <Routes>
           <Route path= '/' element = {<Login/>} exact ></Route>
           <Route path= '/principal' element = {<Principal/>} exact ></Route>
+          <Route path= '/editarempresa/:idEmpresa' element = {<EditarEmpresa/>} exact ></Route>
 
           {/*Departamentos*/}
           <Route path='/departamentos' element={<ListarDepartamentos />} exact></Route>

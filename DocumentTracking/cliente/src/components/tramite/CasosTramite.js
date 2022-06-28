@@ -112,7 +112,7 @@ function Casostramite() {
             Swal.fire({
                 icon: 'warning',
                 title: 'Oops...',
-                text: 'No existen más empleados a agregar!',
+                text: 'No existen más casos a agregar!',
                
               })
         }
