@@ -39,7 +39,9 @@ function Casostramite() {
                 cont++;
                 casos1.map(caso => {
                     axios.post('/api/usuario/obtenercaso', { caso }).then(res => {
+                        if(res.data[0] != undefined){
                         setdataCasosTram(dataCasosTram => dataCasosTram.concat(res.data[0]));
+                        }
                     })
                 })
             }
@@ -58,7 +60,7 @@ function Casostramite() {
     const listacasosdep = dataCasosTram.map(caso => {
         return (
             <div>
-                <CasoIndividual caso={caso} />
+                <CasoIndividual caso={caso} idTramite = {params.idTramite}/>
             </div>
         )
     })

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import AOS from 'aos'
@@ -6,7 +6,7 @@ import 'aos/dist/aos.css'
 import Swal from 'sweetalert2'
 
 
-function EmpleadoIndividual({ empleado }) {
+function EmpleadoIndividual({ empleado ,  mostrarQuitar, idDepartamento }) {
 
     const navegar = useNavigate()
 
@@ -15,31 +15,104 @@ function EmpleadoIndividual({ empleado }) {
         AOS.init()
     },[])
 
+    // //Funcion para borrar empleado
+    // function borrarempleado(idEmpleado){
+
+    //         axios.post('/api/usuario/borrarempleado', {idEmpleado: idEmpleado}).then(res =>{
+    //             console.log(res.data)
+    //             alert(res.data)
+    //             navegar(0)
+    //         }).catch(err =>{
+    //             console.log(err)
+    //         })
+    // }
+
+    const [datadepartamentos, setdatadepartamento] = useState([])
+
+
     //Funcion para borrar empleado
-    function borrarempleado(idEmpleado){
-            Swal.fire({
-                title: 'Estás seguro?',
-                text: "Se borrará permanentemente!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Eliminar!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                  Swal.fire('Eliminado!','El caso ha sido eliminado.','success')
-                    axios.post('/api/usuario/borrarempleado', {idEmpleado: idEmpleado}).then(res =>{
-                        console.log(res.data)
-                        navegar(0)
-                    }).catch(err =>{
-                        Swal.fire('ERROR!','Error al eliminar el caso','error')
-                        console.log(err)
-                        navegar(0)
-                    })
+    function borrarempleado(idEmpleado) {
+        
+        // buscar departamentos
+        axios.post('/api/usuario/obtenerdepartamentos', { estado: "A" }).then(res => {
+            setdatadepartamento(res.data)
+            
+            //mapeo departamentos
+            datadepartamentos.map(departamento => {
+                
+                if (departamento.empleados.length >= 1) {
+                    const found = departamento.empleados.find(element => element === idEmpleado);
+                   
+                    if (found === idEmpleado) {
+                       // eliminar el empleado del departamento
+                        const filteredLibraries = departamento.empleados.filter((item) => item !== idEmpleado)
+                        const actualizardepartamento = {
+                            idDepartamento: idDepartamento,
+                            estado: 'A',
+                            empleados: filteredLibraries
+                        }
+                        
+                        // hacer peticion usando axios
+                        axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
+                            .then(res => {
+                                console.log(res.data)
+                                // borra empleado
+                                axios.post('/api/usuario/borrarempleado', { idEmpleado: idEmpleado })
+                                    .then(res => {
+                                        navegar(0)
+                                    }).catch(err => {
+                                        console.log(err)
+                                    })
+                            })
+                            .then(err => {
+                                if (err) {
+                                    console.log(err)
+                                }
+                            })
+                    }
                 }
             })
+        }).catch(err => { console.log(err) }
+        )
     }
 
+
+    function quitarempleado(idEmpleado) {
+        console.log(idDepartamento)
+        console.log(idEmpleado)
+
+        /// buscar dep -> cargarlo junto con sus empleados ->
+        axios.post('/api/usuario/obtenerdatadepartamento', { idDepartamento }).then(res => {
+            const datadepartamento = res.data[0]
+
+            var empleados1 = datadepartamento.empleados;
+            // eliminar el empleado del departamento
+            const filteredLibraries = empleados1.filter((item) => item !== idEmpleado)
+            //console.log(filteredLibraries)
+
+            // Nuevo objeto para actualizar usuario
+            const actualizardepartamento = {
+                idDepartamento: idDepartamento,
+                estado: 'A',
+                empleados: filteredLibraries
+            }
+
+            // hacer peticion usando axios
+            axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
+                .then(res => {
+                    console.log(res.data)
+                    // actualizar empleados en pantalla
+                    navegar(0)
+
+                })
+                .then(err => {
+                    if (err) {
+                        console.log(err)
+                    }
+                })
+        })
+
+    }
 
     return (
         <div>
@@ -58,7 +131,7 @@ function EmpleadoIndividual({ empleado }) {
 
                         <Link to={`/editarempleado/${empleado.idEmpleado}`}><li className='btn btn-success'>Editar</li></Link>
                         &nbsp;
-                        <button className="btn btn-warning" >Quitar</button>
+                        <button hidden={mostrarQuitar} className="btn btn-warning" onClick={() => quitarempleado(empleado.idEmpleado)}>Quitar</button>
                         &nbsp;
                         <button className="btn btn-danger" onClick={()=>borrarempleado(empleado.idEmpleado)}>Borrar</button>
                         <hr className='mt-4'></hr>

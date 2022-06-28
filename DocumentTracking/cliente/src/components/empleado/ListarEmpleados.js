@@ -17,7 +17,7 @@ function ListarEmpleados() {
     const ListadoEmpleados = dataEmpleado.map(empleado=>{
         return(
             <div>
-                <EmpleadoIndividual empleado={empleado}/>
+                <EmpleadoIndividual empleado={empleado} mostrarQuitar = {"false"} />
             </div>
         )
     })
