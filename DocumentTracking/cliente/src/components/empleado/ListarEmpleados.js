@@ -25,13 +25,16 @@ function ListarEmpleados() {
 
         <div>
             <NavBar/>
+            <div className='acomodar-resultados'>
+                {ListadoEmpleados}
+            </div>
 
-            <div>
+            <div className='sticky'>
                 <h1 class="Titulos">
                     Empleados
                 </h1>
-                <a class="btn-insertar" href="/agregarempleados">Agregar empleados</a>
-                {ListadoEmpleados}
+                <a className="btn-insertar" href="/agregarempleados">Agregar empleados</a>
+                <hr/>
             </div>
 
             {/* <div class="list-group">

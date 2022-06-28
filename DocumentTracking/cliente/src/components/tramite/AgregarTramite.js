@@ -41,11 +41,11 @@ function AgregarTramite() {
             <NavBar />
             <div className='container'>
 
-                <div className='row'>
+                <div className='Titulos'>
                     <h2 className='mt-4'> Crear nuevo tramite</h2>
                 </div>
 
-                <div className='row'>
+                <div className='boxAgregar'>
                     <div className='col-sm-6 offset-3'>
 
                         <div className='mb-3'>
@@ -54,10 +54,10 @@ function AgregarTramite() {
                         </div>
 
                         {/* 
-        <div className='mb-3'>
-            <label htmlFor='tramites' className='form-label'>Tramites</label>
-            <input type="text" className='form-control' value = {tramites} onChange = {(e)=>{setTramites(e.target.value )}}></input>
-        </div> */}
+                        <div className='mb-3'>
+                            <label htmlFor='tramites' className='form-label'>Tramites</label>
+                            <input type="text" className='form-control' value = {tramites} onChange = {(e)=>{setTramites(e.target.value )}}></input>
+                        </div> */}
 
                         <button onClick={agregarTramite} className='btn btn-success'>Guardar Tramite</button>
 

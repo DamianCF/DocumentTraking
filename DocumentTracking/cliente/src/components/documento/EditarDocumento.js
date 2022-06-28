@@ -79,9 +79,7 @@ function EditarDocumento() {
                 <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="#">Infomacion Departamento</a>
                 </li>
-                <li className="nav-item">
-                    <a className="nav-link" href={`/editardocumento/${idDEP}`}>Tramites</a>
-                </li>
+   
           
             </ul>
 
@@ -97,7 +95,7 @@ function EditarDocumento() {
                         </div>
 
                         <div className='mb-3'>
-                            <label htmlFor='ubicacion' className='form-label'></label>
+                            <label htmlFor='ubicacion' className='form-label'>Ubicacion</label>
                             <input type="text" className='form-control' value={ubicacion} onChange={(e) => { setUbicacion(e.target.value) }}></input>
                         </div>
                         <div className='mb-3'>

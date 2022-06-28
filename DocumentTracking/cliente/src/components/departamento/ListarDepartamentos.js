@@ -34,13 +34,18 @@ function Listardepartamentos() {
 
         <div>
             <NavBar/>
-            <div>
+
+            <div className='acomodar-resultados'>
+                {listadepartamentos}
+            </div>
+
+            <div className='sticky'>
                 <h1 className="Titulos">
                     Departamentos
                 </h1>
                 <a className="btn-insertar" href="/agregardepartamento">Agregar Departamento</a>
                 <hr/>
-                {listadepartamentos}
+                
             </div>
         </div>
     )

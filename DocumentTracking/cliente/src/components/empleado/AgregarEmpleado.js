@@ -56,80 +56,54 @@ function AgregarEmpleados() {
 
         <>
             <NavBar />
-            <div className='container'>
-                <h1> CREAR UN EMPLEADO</h1>
-                <div className='row'>
-                    <h2 className='mt-4'> Crear nuevo empleado</h2>
-                </div>
+            <h1 className='Titulos'> CREAR UN EMPLEADO</h1>
+            <center>
+                <table>
+                    <div className='boxEmpleado'>
+                        <div>
+                            <h2>Informacion basica</h2>
+                            <tr >
+                                    <input type="text" className='tablaFila' placeholder="Nombre" value={nombre} onChange={(e) => { setNombre(e.target.value) }}></input> 
+                                    <input type="text" className='tablaFila' placeholder="Primer apellido" value={pApellido} onChange={(e) => { setPApellido(e.target.value) }}></input>
+                                    <input type="text" className='tablaFila'  placeholder="Segundo apellido" value={sApellido} onChange={(e) => { setSApellido(e.target.value) }}></input>
+                            </tr>
+                                
+                            <h2>Datos personales</h2>
+                            <tr>
+                                <input type="text" className='tablaFila' placeholder='Cedula' value={cedula} onChange={(e) => { setCedula(e.target.value) }}></input>
+                                <input type="number" className='tablaFila' placeholder='Edad' value={edad} onChange={(e) => { setEdad(e.target.value) }}></input>
+                                <input type="text" className='tablaFila' placeholder='Sexo' value={sexo} onChange={(e) => { setSexo(e.target.value) }}></input>
+                            </tr>
+                            
+                            <h2>Contacto</h2>
+                            <tr>
+                                
+                                <input type="text" className='tablaFila' placeholder='Telefono' value={telefono} onChange={(e) => { setTelefono(e.target.value) }}></input>
 
-                <div className='row'>
-                    <div className='col-sm-6 offset-3'>
+                                <input type="text" className='tablaFila' placeholder='Correo' value={correo} onChange={(e) => { setCorreo(e.target.value) }}></input>
 
+                                
+                            </tr>
 
-                        <div className='mb-3'>
-                            <label htmlFor='nombre' className='form-label'>Nombre</label>
-                            <input type="text" className='form-control' value={nombre} onChange={(e) => { setNombre(e.target.value) }}></input>
-                        </div>
+                            <h2>Datos administrativos</h2>
+                            <tr>
+                            <input type="text" className='tablaFila' placeholder='Descripcion labor' value={desc_labor} onChange={(e) => { setDesc_labor(e.target.value) }}></input>
+                                <input type="text" className='tablaFila' placeholder='Rol' value={rol} onChange={(e) => { setRol(e.target.value) }}></input>
+                            </tr>
 
-                        <div className='mb-3'>
-                            <label htmlFor='pApellido' className='form-label'>Primer Apellido</label>
-                            <input type="text" className='form-control' value={pApellido} onChange={(e) => { setPApellido(e.target.value) }}></input>
-                        </div>
+                            <h2>Datos inicio de sesion</h2>
+                            <tr>
+                                <input type="text" className='tablaFila' placeholder='Clave' value={clave} onChange={(e) => { setClave(e.target.value) }}></input>
+                            </tr>
+                            
+                        <hr/>
+                        <button onClick={agregarEmpleados} className='btn btn-success'>Guardar empleado</button>
 
-                        <div className='mb-3'>
-                            <label htmlFor='sApellido' className='form-label'>Segundo Apellido</label>
-                            <input type="text" className='form-control' value={sApellido} onChange={(e) => { setSApellido(e.target.value) }}></input>
                         </div>
-
-                        <div className='mb-3'>
-                            <label htmlFor='cedula' className='form-label'>Cedula</label>
-                            <input type="text" className='form-control' value={cedula} onChange={(e) => { setCedula(e.target.value) }}></input>
-                        </div>
-                        <div className='mb-3'>
-                            <label htmlFor='edad' className='form-label'>Edad</label>
-                            <input type="number" className='form-control' value={edad} onChange={(e) => { setEdad(e.target.value) }}></input>
-                        </div>
-                        <div className='mb-3'>
-                            <label htmlFor='sexo' className='form-label'>Sexo</label>
-                            <input type="text" className='form-control' value={sexo} onChange={(e) => { setSexo(e.target.value) }}></input>
-                        </div>
-                        <div className='mb-3'>
-                            <label htmlFor='desc_labor' className='form-label'>Descripcion de la labor </label>
-                            <input type="text" className='form-control' value={desc_labor} onChange={(e) => { setDesc_labor(e.target.value) }}></input>
-                        </div>
-                        <div className='mb-3'>
-                            <label htmlFor='rol' className='form-label'>Rol </label>
-                            <input type="text" className='form-control' value={rol} onChange={(e) => { setRol(e.target.value) }}></input>
-                        </div>
-                      
-
-                        <div className='mb-3'>
-                            <label htmlFor='telefono' className='form-label'>Telefono </label>
-                            <input type="text" className='form-control' value={telefono} onChange={(e) => { setTelefono(e.target.value) }}></input>
-                        </div>
-                        <div className='mb-3'>
-                            <label htmlFor='correo' className='form-label'>Correo </label>
-                            <input type="text" className='form-control' value={correo} onChange={(e) => { setCorreo(e.target.value) }}></input>
-                        </div>
-                        <div className='mb-3'>
-                            <label htmlFor='clave' className='form-label'>Clave </label>
-                            <input type="text" className='form-control' value={clave} onChange={(e) => { setClave(e.target.value) }}></input>
-                        </div>
-                        {/* 
-        <div className='mb-3'>
-            <label htmlFor='tramites' className='form-label'>Tramites</label>
-            <input type="text" className='form-control' value = {tramites} onChange = {(e)=>{setTramites(e.target.value )}}></input>
-        </div> */}
-          
-                    
-                    <hr/>
-        <button onClick={agregarEmpleados} className='btn btn-success'>Guardar empleado</button>
-
                     </div>
-                </div>
-            </div>
+                </table>
+            </center>
         </>
-
     )
 }
 

@@ -27,14 +27,18 @@ function ListarCasos() {
     return (
         <div >
             <NavBar/> 
-            <div >
-                <h1 className="Titulos"> 
-                    Casos
-                </h1>
-                <a class="btn-insertar" href="/agregarCaso">Agregar Caso</a>
-                <hr/>
+
+            <div className='acomodar-resultados'>
                 {listadecasos}
             </div>
+            
+            <div className='sticky'>
+                <h1 className="Titulos">Casos</h1>
+                <a class="btn-insertar" href="/agregarCaso">Agregar Caso</a>
+                <hr/>    
+            </div>
+            
+            
         </div>
 
     )

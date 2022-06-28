@@ -58,7 +58,7 @@ function AgregarDocumentos() {
         <>
             <NavBar />
             <div className='container'>
-                <h1> CREAR UN DOCUMENTO</h1>
+                <h1 className='Titulos'> DOCUMENTO</h1>
                 <div className='row'>
                     <h2 className='mt-4'> Crear nuevo documento</h2>
                 </div>
