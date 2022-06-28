@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Swal from 'sweetalert2'
 
 
 function EmpleadoIndividual({ empleado }) {
@@ -16,13 +17,26 @@ function EmpleadoIndividual({ empleado }) {
 
     //Funcion para borrar empleado
     function borrarempleado(idEmpleado){
-
-            axios.post('/api/usuario/borrarempleado', {idEmpleado: idEmpleado}).then(res =>{
-                console.log(res.data)
-                alert(res.data)
-                navegar(0)
-            }).catch(err =>{
-                console.log(err)
+            Swal.fire({
+                title: 'Estás seguro?',
+                text: "Se borrará permanentemente!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire('Eliminado!','El caso ha sido eliminado.','success')
+                    axios.post('/api/usuario/borrarempleado', {idEmpleado: idEmpleado}).then(res =>{
+                        console.log(res.data)
+                        navegar(0)
+                    }).catch(err =>{
+                        Swal.fire('ERROR!','Error al eliminar el caso','error')
+                        console.log(err)
+                        navegar(0)
+                    })
+                }
             })
     }
 

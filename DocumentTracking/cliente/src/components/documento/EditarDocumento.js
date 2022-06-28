@@ -47,12 +47,13 @@ function EditarDocumento() {
             .then(res => {
               
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'center',
                     icon: 'success',
                     title: 'Documento Editado',
                     showConfirmButton: false,
                     timer: 1500
                   })
+                  navegar("/documentos")
             })
             .then(err => { 
 
@@ -63,8 +64,6 @@ function EditarDocumento() {
                         text: 'No se ha podido actualizar el documento!',
                       })
                 }
-                // console.log("fallo")
-                // console.log(err)
              })
     }
 
@@ -74,19 +73,11 @@ function EditarDocumento() {
         <div>
             <NavBar />
 
-            <h3>Departamento</h3>
-            <ul className="nav nav-tabs">
-                <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">Infomacion Departamento</a>
-                </li>
-   
-          
-            </ul>
-
+            <h3 className='Titulos'>Documento</h3>
 
             <div className='container'>
 
-                <div className='row'>
+                <div className='boxAgregar'>
                     <div className='col-sm-6 offset-3'>
 
                         <div className='mb-3'>
@@ -105,7 +96,7 @@ function EditarDocumento() {
 
                         <button onClick={editarDocumento} className='btn btn-success'>Editar Documento</button>
                         &nbsp;
-                        <button className="btn btn-secondary">Cancelar</button>
+                        <button  onClick={()=>navegar("/documentos")} className="btn btn-secondary">Cancelar</button>
 
                     </div>
                 </div>

@@ -118,7 +118,7 @@ function EditarTramite() {
                         </div>
                         <button onClick={editarTramite} className='btn btn-success'>Editar Tramite</button>
                         &nbsp;
-                        <button className="btn btn-secondary">Cancelar</button>
+                        <button className="btn btn-secondary"  onClick={()=>navegar("/tramites")}>Cancelar</button>
                     </div>
                 </div>
             </div>
