@@ -30,14 +30,17 @@ function ListarTramites() {
     return (        
         <div>
             <NavBar/>
+            <div className='acomodar-resultados'>
+                {listatramites}
+            </div>
 
-            <div>
-                <h1 class="Tramites">
+            <div className='sticky'>
+                <h1 class="Titulos">
                     Tramites
                 </h1>
-                <a className="nav-link" href="/agregartramite">Agregar Tamite</a>
+                <a className="btn-insertar" href="/agregartramite">Agregar Tamite</a>
                 <hr/>
-                {listatramites}
+                
             </div>
         </div>
 

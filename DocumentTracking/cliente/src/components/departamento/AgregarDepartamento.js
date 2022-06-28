@@ -49,11 +49,11 @@ function AgregarDepartamento() {
             <NavBar />
             <div className='container'>
 
-                <div className='row'>
+                <div className='Titulos'>
                     <h2 className='mt-4'> Crear nuevo departamento</h2>
                 </div>
 
-                <div className='row'>
+                <div className='boxAgregar'>
                     <div className='col-sm-6 offset-3'>
 
                         <div className='mb-3'>

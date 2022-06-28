@@ -35,10 +35,10 @@ function DepartamentoIndividual({ departamento }) {
                     <div className='col-sm-6 offset-3'  data-aos= "flip-right">
 
                         <ul className='list-group'>
-                            <li className='list-group-item' hidden =  {true} >{departamento.idDepartamento}</li>
-                            <li className='list-group-item'>Departamento: {departamento.nombre}</li>
-                            <li className='list-group-item'>Descripcion: {departamento.descripcion}</li>
-                            <li className='list-group-item'>Correo: {departamento.correo} / Telefono: {departamento.telefono}</li>
+                            <li className='listar' hidden =  {true} >{departamento.idDepartamento}</li>
+                            <li className='listar'>Departamento: {departamento.nombre}</li>
+                            <li className='listar'>Descripcion: {departamento.descripcion}</li>
+                            <li className='listar'>Correo: {departamento.correo} / Telefono: {departamento.telefono}</li>
                         </ul>
 
                         <Link to={`/editardepartamento/${departamento.idDepartamento}`}><li className='btn btn-success'>Seleccionar</li></Link>

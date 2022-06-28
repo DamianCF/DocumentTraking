@@ -19,6 +19,8 @@ import ListarDocumentos from './components/documento/ListarDocumentos';
 import ListarEmpleados from './components/empleado/ListarEmpleados';
 import AgregarDocumento from './components/documento/AgregarDocumentos'; 
 import AgregarDocumentos from './components/documento/AgregarDocumentos';
+import EditarDocumento from './components/documento/EditarDocumento';
+
 
 //Casos
 import ListarCasos from './components/caso/ListarCasos';
@@ -29,6 +31,8 @@ import Login from './components/Login';
 import EditarTramite from './components/tramite/EditarTramite';
 import Casostramite from './components/tramite/CasosTramite';
 import DocumentosTramite from './components/tramite/DocumentosTramite';
+import Agregarempleados from './components/empleado/AgregarEmpleado';
+import EditarEmpleado from './components/empleado/EditarEmpleado';
 
 
 
@@ -54,12 +58,13 @@ function App() {
           {/*Documentos*/}
           <Route path='/documentos' element={<ListarDocumentos />} exact></Route>
           <Route path='/agregardocumentos' element={<AgregarDocumentos />} exact></Route>
-
+          <Route path= '/editarDocumento/:idDocumento' element={<EditarDocumento/>} exact></Route>
 
 
           {/*Empleados*/}
           <Route path='/empleados' element={<ListarEmpleados />} exact></Route>
-
+          <Route path='/agregarEmpleados' element={<Agregarempleados />} exact></Route>
+          <Route path ='/editarempleado/:idEmpleado' element = {<EditarEmpleado/>} exact></Route>
 
           {/*Casos*/}
           <Route path='/casos' element={<ListarCasos />} exact></Route>

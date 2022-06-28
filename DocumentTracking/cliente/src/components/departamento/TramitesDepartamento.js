@@ -3,8 +3,8 @@ import NavBar from '../NavBar';
 import React, { useEffect, useState } from 'react'
 import TramiteIndividual from '../tramite/TramiteIndividual'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 import { useNavigate, useParams } from 'react-router-dom'
-
 
 
 function Tramitesdepartamento() {
@@ -92,10 +92,13 @@ function Tramitesdepartamento() {
 
 
         //console.log(document.getElementById("select").value)
+      
         // setTramitesDEP( tramitesDEP => tramitesDEP.concat( document.getElementById("select").value) )
-        tramitesDEP.push(document.getElementById("select").value)
-        console.log(tramitesDEP)
+      if(document.getElementById("select").value != ""){
 
+        tramitesDEP.push(document.getElementById("select").value)
+       
+        console.log(tramitesDEP)
         // Nuevo objeto para actualizar usuario
         const actualizardepartamento = {
             idDepartamento: idDEP,
@@ -106,60 +109,100 @@ function Tramitesdepartamento() {
             estado: estado,
             tramites: tramitesDEP
         }
+         // hacer peticion usando axios
+         axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
+         .then(res => {
+             console.log(res.data)
+             // actualizar tramites en pantalla
+             navegar(0)
 
-        // hacer peticion usando axios
-        axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
-            .then(res => {
-                console.log(res.data)
-                // actualizar tramites en pantalla
-                navegar(0)
-
-            })
-            .then(err => {
-                if (err) {
-                    console.log(err)
-                }
-            })
+         })
+         .then(err => {
+             if (err) {
+                 console.log(err)
+             }
+         })
+ } else {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'No existen más tramites a agregar!',
+       
+      })
+ }
     }
+       
+
+      
+
+       
 
 
     return (
 
         <div>
+            {/*<NavBar */}
+            
+            <div className='acomodar-resultados-2'>
+                {listatramitesdep}
+            </div>
 
-            <NavBar />
-            <br />
-            <br />
-            <br />
-            <h3> Tramites de Departamento</h3>
-
-            <div >
+            <div className='sticky'>
+                <h3 className='Titulos'> Tramites de Departamento</h3>
+                <a className="btn-insertar" href="/agregartramite">Crear Tramite</a>
                 <br />
-                <select id="select" className="form-select" aria-label="Default select example" >
+                <hr></hr>
+
+                <select id="select" className="btn-seleccion" aria-label="Default select example" >
                     {listatramites}
                 </select>
                 <br />
                 <button className="btn btn-success" onClick={editarDepartamento}>Agregar Tramite Existente</button>
-                <br />
-                <a className="nav-link" href="/agregartramite">Crear Tramite</a>
+                <br /> 
+                <hr/>
             </div>
 
-            <ul className="nav nav-tabs">
-                <li className="nav-item">
+            
+
+            {/* <ul className="nav nav-tabs">
+                <li className="tabs">
                     <a className="nav-link" href={`/editardepartamento/${idDEP}`}>Informacion Departamento</a>
                 </li>
-                <li className="nav-item">
+                <li className="tabs">
                     <a className="nav-link active" aria-current="page" href="#">Tramites</a>
                 </li>
-                <li className="nav-item">
+                <li className="tabs">
                     <a className="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
                 </li>
-            </ul>
+            </ul> */}
 
             <div>
-                {listatramitesdep}
+                <nav className="nav-tabs navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+                    <div className="container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+                            <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                        </svg>
+                        <a className="navbar-brand" href="/departamentos"> Departamentos</a>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li className="nav-item">
+                                    <a className="nav-link" href={`/editardepartamento/${idDEP}`}>Informacion Departamento</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="tabs" aria-current="page">Tramites</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-
         </div>
 
     )
