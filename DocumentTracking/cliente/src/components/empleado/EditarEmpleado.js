@@ -48,10 +48,10 @@ function EditarEmpleado() {
     }, [])
 
     //funcion que actualiza
-
     function editarEmpleados() {
+        
         // Nuevo objeto para actualizar usuario
-        const actualizardepartamento = {
+        const actualizarempleado = {
             idEmpleado: params.idEmpleado,
             nombre : nombre,
             pApellido: pApellido,
@@ -67,19 +67,16 @@ function EditarEmpleado() {
         }
 
         // hacer peticion usando axios
-        axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
+        axios.post('/api/usuario/actualizarempleado', actualizarempleado)
             .then(res => {
-                // console.log("exito")
-                // console.log(res.data)
-                // alert(res.data)
-                // navegar('/')
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'center',
                     icon: 'success',
-                    title: 'Departamento Editado',
+                    title: 'Empleado Editado',
                     showConfirmButton: false,
                     timer: 1500
                   })
+                  navegar("/empleados")
             })
             .then(err => { 
 
@@ -90,8 +87,6 @@ function EditarEmpleado() {
                         text: 'No se ha podido actualizar el departamento!',
                       })
                 }
-                // console.log("fallo")
-                // console.log(err)
              })
     }
 
@@ -102,18 +97,6 @@ function EditarEmpleado() {
             <NavBar />
 
             <h3 className='Titulos'>Empleado</h3>
-            {/* <ul className="nav nav-tabs">
-                <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">Infomacion Departamento</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href={`/editartramitesdepartamento/${idDEP}`}>Tramites</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href={`/editarempleadosdepartamento/${idDEP}`}>Empleados</a>
-                </li>
-            </ul> */}
-
             <center>
                 <table>
                     <div className='boxEmpleado'>
@@ -154,7 +137,7 @@ function EditarEmpleado() {
                             </tr>
                             
                         <hr/>
-                        <button onClick={editarEmpleados} className='btn btn-success'>Guardar empleado</button><br/><br/>
+                        <button onClick={editarEmpleados} className='btn btn-success'>Guardar cambios</button><br/><br/>
                         <button className="btn btn-secondary"  onClick={()=>navegar("/empleados")}>Cancelar</button>
 
                         </div>

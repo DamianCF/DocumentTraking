@@ -45,38 +45,21 @@ function EditarDepartamento() {
             correo: correo,
             telefono: telefono,
             estado : estado
-
-
-
-
-            // idDepartamento: req.body.idDepartamento,
-            //   idJefe: req.body.idJefe,
-            //   nombre: req.body.nombre,
-            //   descripcion: req.body.descripcion,
-            //   estado: req.body.estado,
-            //   telefono: req.body.telefono,
-            //   correo: req.body.correo,
-            //   empleados: req.body.empleados,
-            //   tramites: req.body.tramites
         }
 
         // hacer peticion usando axios
         axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
             .then(res => {
-                // console.log("exito")
-                // console.log(res.data)
-                // alert(res.data)
-                // navegar('/')
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'center',
                     icon: 'success',
                     title: 'Departamento Editado',
                     showConfirmButton: false,
                     timer: 1500
                   })
+                  navegar("/departamentos")
             })
             .then(err => { 
-
                 if(err){
                     Swal.fire({
                         icon: 'error',
@@ -84,8 +67,6 @@ function EditarDepartamento() {
                         text: 'No se ha podido actualizar el departamento!',
                       })
                 }
-                // console.log("fallo")
-                // console.log(err)
              })
     }
 

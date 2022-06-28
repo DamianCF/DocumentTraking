@@ -3,6 +3,7 @@ import uniquid from 'uniquid'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import NavBar from '../NavBar';
+import {Link, useNavigate} from 'react-router-dom'
 
 function AgregarDepartamento() {
 
@@ -18,6 +19,7 @@ function AgregarDepartamento() {
     // const[empleados, setEmpleados] = useState('')
     // const[tramites, setTramites] = useState('')
 
+    const navegar = useNavigate()
 
 
     function agregarDepartamento() {
@@ -39,6 +41,7 @@ function AgregarDepartamento() {
             .then(res => {
                 //alert(res.data)
                 Swal.fire('Felicidades', 'El departamento se creo con exito')
+                navegar("/departamentos")
             })
             .then(err => { console.log(err) })
     }
@@ -73,16 +76,8 @@ function AgregarDepartamento() {
 
                         <div className='mb-3'>
                             <label htmlFor='telefono' className='form-label'>Telefono</label>
-                            <input type="text" className='form-control' value={telefono} onChange={(e) => { setTelefono(e.target.value) }}></input>
+                            <input type="number" className='form-control' value={telefono} onChange={(e) => { setTelefono(e.target.value) }}></input>
                         </div>
-
-
-                        {/* 
-        <div className='mb-3'>
-            <label htmlFor='tramites' className='form-label'>Tramites</label>
-            <input type="text" className='form-control' value = {tramites} onChange = {(e)=>{setTramites(e.target.value )}}></input>
-        </div> */}
-
                         <button onClick={agregarDepartamento} className='btn btn-success'>Guardar Departamento</button>
 
                     </div>

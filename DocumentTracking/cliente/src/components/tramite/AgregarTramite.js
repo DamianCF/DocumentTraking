@@ -3,6 +3,7 @@ import uniquid from 'uniquid'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import NavBar from '../NavBar';
+import {Link, useNavigate} from 'react-router-dom'
 
 function AgregarTramite() {
 
@@ -11,6 +12,7 @@ function AgregarTramite() {
     const [descripcion, setDescripcion] = useState('')
     const [estado, setEstado] = useState('A')
 
+    const navegar = useNavigate()
     function agregarTramite() {
         var tramite = {
             descripcion: descripcion,
@@ -22,16 +24,16 @@ function AgregarTramite() {
 
         axios.post('/api/usuario/agregartramite', tramite)
             .then(res => {
-                //alert(res.data)
                Swal.fire('Felicidades', 'El tramite se creo con exito')
+               navegar("/tramites")
             })
             .then(err => { 
                 
-                // Swal.fire({
-                //     icon: 'error',
-                //     title: 'Oops...',
-                //     text: 'No se ha podido guardar el tramite!',
-                //   })
+                 Swal.fire({
+                     icon: 'error',
+                     title: 'Oops...',
+                     text: 'No se ha podido guardar el tramite!',
+                })
                 console.log(err) })
     }
 
@@ -53,14 +55,8 @@ function AgregarTramite() {
                             <input type="text" className='form-control' value={descripcion} onChange={(e) => { setDescripcion(e.target.value) }}></input>
                         </div>
 
-                        {/* 
-                        <div className='mb-3'>
-                            <label htmlFor='tramites' className='form-label'>Tramites</label>
-                            <input type="text" className='form-control' value = {tramites} onChange = {(e)=>{setTramites(e.target.value )}}></input>
-                        </div> */}
-
                         <button onClick={agregarTramite} className='btn btn-success'>Guardar Tramite</button>
-
+                        
                     </div>
                 </div>
             </div>

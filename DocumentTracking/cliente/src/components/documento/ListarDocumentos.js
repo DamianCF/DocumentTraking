@@ -47,7 +47,7 @@ function ListarDocumentos() {
             
             <NavBar />
             
-            <div className='acomodar-resultados'>
+            <div className='acomodar-resultados-2'>
                 {listadocumentos}
             </div>
             

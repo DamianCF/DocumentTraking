@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Swal from 'sweetalert2'
 
 
 function DepartamentoIndividual({ departamento }) {
@@ -17,12 +18,26 @@ function DepartamentoIndividual({ departamento }) {
     //Funcion para borrar departamento
     function borrardepartamento(iddepartamento){
 
-            axios.post('/api/usuario/borrardepartamento', {idDepartamento: iddepartamento}).then(res =>{
-                console.log(res.data)
-                alert(res.data)
-                navegar(0)
-            }).catch(err =>{
-                console.log(err)
+            Swal.fire({
+                title: 'Estás seguro?',
+                text: "Se borrará permanentemente!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire('Eliminado!','El departamento ha sido eliminado.','success')
+                     axios.post('/api/usuario/borrardepartamento', {idDepartamento: iddepartamento}).then(res =>{
+                        console.log(res.data)
+                        navegar(0)
+                    }).catch(err =>{
+                        Swal.fire('ERROR!','Error al eliminar el caso','error')
+                        console.log(err)
+                        navegar(0)
+                    })
+                }
             })
     }
 

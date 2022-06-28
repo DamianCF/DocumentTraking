@@ -3,6 +3,7 @@ import uniquid from 'uniquid'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import NavBar from '../NavBar';
+import {Link, Navigate, useNavigate} from 'react-router-dom'
 
 function AgregarEmpleados() {
 
@@ -20,7 +21,7 @@ function AgregarEmpleados() {
     const [correo, setCorreo]= useState('')
     const [clave, setClave]= useState('')
 
-
+    const navegar = useNavigate()
     function agregarEmpleados() {
         var empleado = {
 
@@ -47,6 +48,7 @@ function AgregarEmpleados() {
             .then(res => {
                 //alert(res.data)
                 Swal.fire('Felicidades', 'El empleado se creo con exito')
+                navegar("/empleados")
             })
             .then(err => { console.log(err) })
     }
