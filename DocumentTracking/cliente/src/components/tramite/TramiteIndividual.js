@@ -17,63 +17,63 @@ function TramiteIndividual({ tramite, mostrarQuitar, idDepartamento }) {
     const [datadepartamentos, setdatadepartamento] = useState([])
 
 
-    //Funcion para borrar tramite
-    function borrartramite(idTramite) {
-        
-        // buscar departamentos
-        axios.post('/api/usuario/obtenerdepartamentos', { estado: "A" }).then(res => {
-            setdatadepartamento(res.data)
-            
-            //mapeo departamentos
-            datadepartamentos.map(departamento => {
-                
-                if (departamento.tramites.length >= 1) {
-                    const found = departamento.tramites.find(element => element === idTramite);
-                   
-                    if (found === idTramite) {
-                       // eliminar el tramite del departamento
-                        const filteredLibraries = departamento.tramites.filter((item) => item !== idTramite)
-                        const actualizardepartamento = {
-                            idDepartamento: idDepartamento,
-                            estado: 'A',
-                            tramites: filteredLibraries
-                        }
-                        
-                        // hacer peticion usando axios
-                        axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
-                            .then(res => {
-                                console.log(res.data)
-                                // borra tramite
-                                axios.post('/api/usuario/borrartramite', { idTramite: idTramite })
-                                    .then(res => {
-                                        navegar(0)
-                                    }).catch(err => {
-                                        console.log(err)
-                                    })
-                            })
-                            .then(err => {
-                                if (err) {
-                                    console.log(err)
-                                }
-                            })
-                    }
-                }
-            })
-        }).catch(err => { console.log(err) }
-        )
-    }
-
     // //Funcion para borrar tramite
-    // function borrartramite(idTramite){
-
-    //     axios.post('/api/usuario/borrartramite', {idTramite: idTramite}).then(res =>{
-    //         //console.log(res.data)
-    //         alert(res.data)
-    //         navegar(0)
-    //     }).catch(err =>{
-    //         console.log(err)
-    //     })
+    // function borrartramite(idTramite) {
+        
+    //     // buscar departamentos
+    //     axios.post('/api/usuario/obtenerdepartamentos', { estado: "A" }).then(res => {
+    //         setdatadepartamento(res.data)
+            
+    //         //mapeo departamentos
+    //         datadepartamentos.map(departamento => {
+                
+    //             if (departamento.tramites.length >= 1) {
+    //                 const found = departamento.tramites.find(element => element === idTramite);
+                   
+    //                 if (found === idTramite) {
+    //                    // eliminar el tramite del departamento
+    //                     const filteredLibraries = departamento.tramites.filter((item) => item !== idTramite)
+    //                     const actualizardepartamento = {
+    //                         idDepartamento: idDepartamento,
+    //                         estado: 'A',
+    //                         tramites: filteredLibraries
+    //                     }
+                        
+    //                     // hacer peticion usando axios
+    //                     axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
+    //                         .then(res => {
+    //                             console.log(res.data)
+    //                             // borra tramite
+    //                             axios.post('/api/usuario/borrartramite', { idTramite: idTramite })
+    //                                 .then(res => {
+    //                                     navegar(0)
+    //                                 }).catch(err => {
+    //                                     console.log(err)
+    //                                 })
+    //                         })
+    //                         .then(err => {
+    //                             if (err) {
+    //                                 console.log(err)
+    //                             }
+    //                         })
+    //                 }
+    //             }
+    //         })
+    //     }).catch(err => { console.log(err) }
+    //     )
     // }
+
+    //Funcion para borrar tramite
+    function borrartramite(idTramite){
+
+        axios.post('/api/usuario/borrartramite', {idTramite: idTramite}).then(res =>{
+            //console.log(res.data)
+            alert(res.data)
+            navegar(0)
+        }).catch(err =>{
+            console.log(err)
+        })
+    }
 
 
 

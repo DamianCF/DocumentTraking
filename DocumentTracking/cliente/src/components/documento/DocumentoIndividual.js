@@ -14,66 +14,66 @@ function DocumentoIndividual({ documento ,mostrarQuitar, idTramite}) {
         AOS.init()
     },[])
 
-    // //Funcion para borrar documento
-    // function borrardocumento(idDocumento){
+    //Funcion para borrar documento
+    function borrarDocumento(idDocumento){
 
-    //         axios.post('/api/usuario/borrardocumento', {idDocumento: idDocumento}).then(res =>{
-    //             console.log(res.data)
-    //             alert(res.data)
-    //             navegar(0)
-    //         }).catch(err =>{
-    //             console.log(err)
-    //         })
-    // }
+            axios.post('/api/usuario/borrardocumento', {idDocumento: idDocumento}).then(res =>{
+                console.log(res.data)
+                alert(res.data)
+                navegar(0)
+            }).catch(err =>{
+                console.log(err)
+            })
+    }
 
     const [datatramites, setdatatramite] = useState([])
 
 
-    //Funcion para borrar documento
-    function borrarDocumento(idDocumento) {
+    // //Funcion para borrar documento
+    // function borrarDocumento(idDocumento) {
         
-        // buscar tramites
-        axios.get('/api/usuario/obtenertramites', {}).then(res => {
-            setdatatramite(res.data)
+    //     // buscar tramites
+    //     axios.get('/api/usuario/obtenertramites', {}).then(res => {
+    //         setdatatramite(res.data)
             
-            //mapeo tramites
-            datatramites.map(tramite => {
+    //         //mapeo tramites
+    //         datatramites.map(tramite => {
                 
-                if (tramite.documentos.length >= 1) {
-                    const found = tramite.documentos.find(element => element === idDocumento);
+    //             if (tramite.documentos.length >= 1) {
+    //                 const found = tramite.documentos.find(element => element === idDocumento);
                    
-                    if (found === idDocumento) {
-                       // eliminar el documento del tramite
-                        const filteredLibraries = tramite.documentos.filter((item) => item !== idDocumento)
-                        const actualizartramite = {
-                            idTramite: idTramite,
-                            estado: 'A',
-                            documentos: filteredLibraries
-                        }
+    //                 if (found === idDocumento) {
+    //                    // eliminar el documento del tramite
+    //                     const filteredLibraries = tramite.documentos.filter((item) => item !== idDocumento)
+    //                     const actualizartramite = {
+    //                         idTramite: idTramite,
+    //                         estado: 'A',
+    //                         documentos: filteredLibraries
+    //                     }
                         
-                        // hacer peticion usando axios
-                        axios.post('/api/usuario/actualizarTramite', actualizartramite)
-                            .then(res => {
-                                console.log(res.data)
-                                // borra documento
-                                axios.post('/api/usuario/borrardocumento', { idDocumento: idDocumento })
-                                    .then(res => {
-                                        navegar(0)
-                                    }).catch(err => {
-                                        console.log(err)
-                                    })
-                            })
-                            .then(err => {
-                                if (err) {
-                                    console.log(err)
-                                }
-                            })
-                    }
-                }
-            })
-        }).catch(err => { console.log(err) }
-        )
-    }
+    //                     // hacer peticion usando axios
+    //                     axios.post('/api/usuario/actualizarTramite', actualizartramite)
+    //                         .then(res => {
+    //                             console.log(res.data)
+    //                             // borra documento
+    //                             axios.post('/api/usuario/borrardocumento', { idDocumento: idDocumento })
+    //                                 .then(res => {
+    //                                     navegar(0)
+    //                                 }).catch(err => {
+    //                                     console.log(err)
+    //                                 })
+    //                         })
+    //                         .then(err => {
+    //                             if (err) {
+    //                                 console.log(err)
+    //                             }
+    //                         })
+    //                 }
+    //             }
+    //         })
+    //     }).catch(err => { console.log(err) }
+    //     )
+    // }
 
     
     function quitardocumento(idDocumento) {

@@ -14,66 +14,66 @@ function EmpleadoIndividual({ empleado ,  mostrarQuitar, idDepartamento }) {
         AOS.init()
     },[])
 
-    // //Funcion para borrar empleado
-    // function borrarempleado(idEmpleado){
+    //Funcion para borrar empleado
+    function borrarempleado(idEmpleado){
 
-    //         axios.post('/api/usuario/borrarempleado', {idEmpleado: idEmpleado}).then(res =>{
-    //             console.log(res.data)
-    //             alert(res.data)
-    //             navegar(0)
-    //         }).catch(err =>{
-    //             console.log(err)
-    //         })
-    // }
+            axios.post('/api/usuario/borrarempleado', {idEmpleado: idEmpleado}).then(res =>{
+                console.log(res.data)
+                alert(res.data)
+                navegar(0)
+            }).catch(err =>{
+                console.log(err)
+            })
+    }
 
     const [datadepartamentos, setdatadepartamento] = useState([])
 
 
-    //Funcion para borrar empleado
-    function borrarempleado(idEmpleado) {
+    // //Funcion para borrar empleado
+    // function borrarempleado(idEmpleado) {
         
-        // buscar departamentos
-        axios.post('/api/usuario/obtenerdepartamentos', { estado: "A" }).then(res => {
-            setdatadepartamento(res.data)
+    //     // buscar departamentos
+    //     axios.post('/api/usuario/obtenerdepartamentos', { estado: "A" }).then(res => {
+    //         setdatadepartamento(res.data)
             
-            //mapeo departamentos
-            datadepartamentos.map(departamento => {
+    //         //mapeo departamentos
+    //         datadepartamentos.map(departamento => {
                 
-                if (departamento.empleados.length >= 1) {
-                    const found = departamento.empleados.find(element => element === idEmpleado);
+    //             if (departamento.empleados.length >= 1) {
+    //                 const found = departamento.empleados.find(element => element === idEmpleado);
                    
-                    if (found === idEmpleado) {
-                       // eliminar el empleado del departamento
-                        const filteredLibraries = departamento.empleados.filter((item) => item !== idEmpleado)
-                        const actualizardepartamento = {
-                            idDepartamento: idDepartamento,
-                            estado: 'A',
-                            empleados: filteredLibraries
-                        }
+    //                 if (found === idEmpleado) {
+    //                    // eliminar el empleado del departamento
+    //                     const filteredLibraries = departamento.empleados.filter((item) => item !== idEmpleado)
+    //                     const actualizardepartamento = {
+    //                         idDepartamento: idDepartamento,
+    //                         estado: 'A',
+    //                         empleados: filteredLibraries
+    //                     }
                         
-                        // hacer peticion usando axios
-                        axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
-                            .then(res => {
-                                console.log(res.data)
-                                // borra empleado
-                                axios.post('/api/usuario/borrarempleado', { idEmpleado: idEmpleado })
-                                    .then(res => {
-                                        navegar(0)
-                                    }).catch(err => {
-                                        console.log(err)
-                                    })
-                            })
-                            .then(err => {
-                                if (err) {
-                                    console.log(err)
-                                }
-                            })
-                    }
-                }
-            })
-        }).catch(err => { console.log(err) }
-        )
-    }
+    //                     // hacer peticion usando axios
+    //                     axios.post('/api/usuario/actualizardepartamento', actualizardepartamento)
+    //                         .then(res => {
+    //                             console.log(res.data)
+    //                             // borra empleado
+    //                             axios.post('/api/usuario/borrarempleado', { idEmpleado: idEmpleado })
+    //                                 .then(res => {
+    //                                     navegar(0)
+    //                                 }).catch(err => {
+    //                                     console.log(err)
+    //                                 })
+    //                         })
+    //                         .then(err => {
+    //                             if (err) {
+    //                                 console.log(err)
+    //                             }
+    //                         })
+    //                 }
+    //             }
+    //         })
+    //     }).catch(err => { console.log(err) }
+    //     )
+    // }
 
 
     function quitarempleado(idEmpleado) {
